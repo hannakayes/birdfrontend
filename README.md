@@ -6,9 +6,10 @@ Welcome to the "Where is My Bird?!" project. This README provides an overview of
 
 You can track the progress of the project and view the tasks on our Trello board [here](https://trello.com/b/jfamD4u0/where-is-my-bird).
 
-## GitHub Repository
+## GitHub Repositories
 
-The frontend repository for this project is available on GitHub: [birdfrontend](https://github.com/hannakayes/birdfrontend).
+- **Frontend Repository**: [birdfrontend](https://github.com/hannakayes/birdfrontend)
+- **Backend Repository**: [birdbackend](https://github.com/hannakayes/birdbackend)
 
 ## Description
 
@@ -110,5 +111,6 @@ The frontend repository for this project is available on GitHub: [birdfrontend](
 
 ## Links
 
-- [GitHub Repo](https://github.com/hannakayes/birdfrontend)
+- [Frontend Repo](https://github.com/hannakayes/birdfrontend)
+- [Backend Repo](https://github.com/hannakayes/birdbackend)
 - [Trello Board](https://trello.com/b/jfamD4u0/where-is-my-bird)
