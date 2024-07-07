@@ -1,0 +1,23 @@
+.footer {
+  background-color: white;
+  text-align: center;
+  padding: 0; /* Adjust padding to reduce height */
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.footerLinks {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+}
+
+.footerLinks li {
+  margin: 0 10px;
+}
+
+.footerLinks a {
+  text-decoration: none;
+  color: black; /* Adjust text color if needed */
+}

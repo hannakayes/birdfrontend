@@ -1,0 +1,26 @@
+.aboutPage {
+  padding: 2rem;
+  text-align: left; /* Adjust text alignment if necessary */
+}
+
+.aboutPage h1 {
+  font-size: 2rem; /* Adjust heading size if necessary */
+  color: #333; /* Example color */
+}
+
+.aboutPage p {
+  font-size: 1.1rem; /* Adjust paragraph text size if necessary */
+  line-height: 1.6; /* Adjust line height if necessary */
+  margin-bottom: 1rem; /* Adjust margin bottom for paragraphs */
+}
+
+.aboutPage ul {
+  list-style-type: disc; /* Example list style */
+  margin-left: 2rem; /* Adjust list margin if necessary */
+}
+
+.aboutPage li {
+  margin-bottom: 0.5rem; /* Adjust margin between list items */
+}
+
+/* Add more styles as needed */
