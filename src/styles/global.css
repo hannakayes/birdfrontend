@@ -1,3 +1,5 @@
+/* global.css */
+
 html,
 body {
   height: 100%;
@@ -7,7 +9,7 @@ body {
 }
 
 body {
-  font-family: "Arial", sans-serif;
+  font-family: "Helvetica", sans-serif;
 }
 
 h1,

@@ -1,4 +1,49 @@
 .mainPage {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   padding: 2rem;
-  text-align: center;
+  margin: 4rem auto; /* Adjust margin as needed */
+  max-width: 1200px;
+}
+
+.mainPage > * {
+  flex: 0 1 calc(25% - 1rem); /* Adjust the width of each card */
+  margin: 0.5rem; /* Adjust margin between cards */
+}
+
+.mainPage h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem; /* Add margin bottom for spacing */
+}
+
+.mainPage p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.mainPage ul {
+  list-style-type: disc;
+  margin-left: 0.1rem;
+}
+
+.mainPage li {
+  margin-bottom: 0.5rem;
+}
+
+.mainPage a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.mainPage a:hover {
+  color: #000000;
+  background-color: #ffee00;
+}
+
+.mainPage .smallText {
+  font-size: 0.8rem;
+  color: #666;
 }

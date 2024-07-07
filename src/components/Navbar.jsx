@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <nav
       className={`${styles.navbar} ${
-        isStartPage ? styles.startPageNavbar : ""
+        isStartPage ? styles.startPageNavbar : styles.otherPageNavbar
       }`}
     >
       <div className={styles.logo}>

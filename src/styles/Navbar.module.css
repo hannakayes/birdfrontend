@@ -1,5 +1,6 @@
+/* Navbar.module.css */
+
 .navbar {
-  background-color: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,6 +35,10 @@
   color: black;
 }
 
+.startPageNavbar {
+  background-color: transparent;
+}
+
 .startPageNavbar .navLinks a {
   color: white; /* Change text color to white */
   font-size: 1.2rem; /* Increase font size */
@@ -43,4 +48,16 @@
   color: #000000; /* Change text color to white */
   background-color: #ffee00;
   font-size: 1.2rem; /* Increase font size */
+}
+
+.otherPageNavbar {
+  background-color: white; /* White background for other pages */
+}
+
+.otherPageNavbar .navLinks a {
+  color: black;
+}
+
+.otherPageNavbar .navLinks a:hover {
+  color: #333; /* Adjust hover color as needed */
 }

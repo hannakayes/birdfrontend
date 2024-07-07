@@ -1,4 +1,33 @@
+/* ErrorPage.module.css */
+
 .errorPage {
   padding: 2rem;
-  text-align: center;
+  margin: 3rem 3rem; /* Larger margin at the top, left, and right */
+  text-align: center; /* Center align text */
+}
+
+.errorPage h1 {
+  font-size: 2rem; /* Adjust heading size if necessary */
+  color: #333; /* Example color */
+}
+
+.errorPage p {
+  line-height: 1.6; /* Adjust line height if necessary */
+  margin-bottom: 1rem; /* Adjust margin bottom for paragraphs */
+}
+
+.errorPage a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.errorPage a:hover {
+  color: #000000; /* Change text color on hover */
+  background-color: #ffee00;
+}
+
+.errorPage .smallText {
+  font-size: 0.8rem; /* Smaller font size for the last paragraph */
+  color: #666; /* Adjust color if necessary */
 }

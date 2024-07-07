@@ -1,0 +1,57 @@
+/* BirdCard.module.css */
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 15rem; /* Fixed width for the card */
+  margin: 1rem; /* Adjusted margin to control spacing between cards */
+}
+
+.cardHeader {
+  padding: 1rem;
+  background-color: #f0f0f0;
+  text-align: center;
+}
+
+.cardImage {
+  width: 6.25rem; /* Adjusted width for the image */
+  height: 6.25rem; /* Adjusted height for the image */
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.cardTitle {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.cardBody {
+  padding: 1rem;
+}
+
+.cardText {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.cardDetails {
+  margin-top: 1rem;
+}
+
+.detail {
+  margin-bottom: 0.5rem;
+}
+
+.detail strong {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.detail span {
+  color: #888;
+}

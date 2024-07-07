@@ -1,3 +1,5 @@
+/* About.module.css */
+
 .aboutPage {
   padding: 2rem;
   margin: 3rem 3rem; /* Larger margin at the top, left, and right */
@@ -10,18 +12,31 @@
 }
 
 .aboutPage p {
-  font-size: 1.1rem; /* Adjust paragraph text size if necessary */
   line-height: 1.6; /* Adjust line height if necessary */
   margin-bottom: 1rem; /* Adjust margin bottom for paragraphs */
 }
 
 .aboutPage ul {
   list-style-type: disc; /* Example list style */
-  margin-left: 2rem; /* Adjust list margin if necessary */
+  margin-left: 0.1rem; /* Adjust list margin if necessary */
 }
 
 .aboutPage li {
   margin-bottom: 0.5rem; /* Adjust margin between list items */
 }
 
-/* Add more styles as needed */
+.aboutPage a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.aboutPage a:hover {
+  color: #000000; /* Change text color to white */
+  background-color: #ffee00;
+}
+
+.smallText {
+  font-size: 0.8rem; /* Smaller font size for the last paragraph */
+  color: #000000; /* Adjust color if necessary */
+}
