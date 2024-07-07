@@ -8,13 +8,12 @@
   top: 0;
   left: 0;
   right: 0;
-  transition: background-color 0.3s ease;
-  z-index: 1000;
+  z-index: 1000; /* Ensure navbar is above other content */
   width: 100%;
 }
 
 .navbar.show {
-  background-color: white;
+  background-color: transparent; /* Ensure it remains transparent when shown */
 }
 
 .logo img {

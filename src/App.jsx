@@ -13,56 +13,25 @@ import Navbar from "./components/Navbar"; // Adjust path to your Navbar componen
 import Footer from "./components/Footer";
 import "./styles/global.css"; // Ensure global styles are imported
 
-class ErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false };
-  }
-
-  static getDerivedStateFromError(error) {
-    return { hasError: true };
-  }
-
-  componentDidCatch(error, errorInfo) {
-    console.error("Error caught in boundary:", error, errorInfo);
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>; // Render fallback UI
-    }
-
-    return this.props.children; // Render children normally
-  }
-}
-
 const App = () => {
   return (
-    <ErrorBoundary>
-      <MantineProvider theme={theme}>
-        <Router>
-          <AppContent />
-        </Router>
-      </MantineProvider>
-    </ErrorBoundary>
-  );
-};
-
-const AppContent = () => {
-  return (
-    <div style={{ paddingTop: "80px", paddingBottom: "60px" }}>
-      <Navbar showNavbar={false} /> {/* Navbar is initially hidden */}
-      <Routes>
-        <Route path="/" element={<StartPage />} />
-        <Route path="/main" element={<MainPage />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<ContactDetails />} />
-        <Route path="/map" element={<Map />} />
-        <Route path="/details/:id" element={<DetailsPage />} />
-        <Route path="*" element={<Error404 />} />
-      </Routes>
-      <Footer />
-    </div>
+    <MantineProvider theme={theme}>
+      <Router>
+        <div style={{ paddingTop: "80px", paddingBottom: "60px" }}>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<StartPage />} />
+            <Route path="/main" element={<MainPage />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<ContactDetails />} />
+            <Route path="/map" element={<Map />} />
+            <Route path="/details/:id" element={<DetailsPage />} />
+            <Route path="*" element={<Error404 />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    </MantineProvider>
   );
 };
 
