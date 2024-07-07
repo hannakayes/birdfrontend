@@ -1,5 +1,7 @@
 .startPage {
-  height: 100vh; /* Ensure the start page covers the entire viewport */
+  height: 100vh;
+  margin: 0;
+  padding: 0;
   background: url("../assets/background_goldfinch.jpeg") no-repeat center center
     fixed;
   background-size: cover;
@@ -10,21 +12,22 @@
   color: white;
   text-align: center;
   position: relative; /* Ensure relative positioning for absolute children */
+  overflow: hidden; /* Prevents scrollbar on the start page */
 }
 
 .content {
   position: absolute;
-  top: 50%; /* Position content in the center vertically */
-  left: 50%; /* Position content in the center horizontally */
+  top: 50%; /* Center content vertically */
+  left: 50%; /* Center content horizontally */
   transform: translate(-50%, -50%);
   z-index: 1; /* Ensure content appears above background */
   text-align: center;
   width: 100%; /* Take full width of the parent */
-  max-width: 600px; /* Example: Set a max width for content */
+  max-width: 600px; /* Set a max width for content */
 }
 
 .logo {
   height: 130px;
   width: auto;
-  margin-bottom: 20px; /* Increase margin between logo and search bar */
+  margin-bottom: 20px; /* Space between logo and search bar */
 }

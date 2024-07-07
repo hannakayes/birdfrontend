@@ -1,6 +1,12 @@
+html,
 body {
+  height: 100%;
   margin: 0;
   padding: 0;
+  overflow: auto; /* Allow scroll */
+}
+
+body {
   font-family: "Arial", sans-serif;
 }
 

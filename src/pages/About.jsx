@@ -7,7 +7,7 @@ const About = () => {
   return (
     <div>
       <div className={styles.aboutPage}>
-        <h1>About Where is My Bird?!</h1>
+        <h1>Where is My Bird?!</h1>
         <p>
           Welcome to Where is My Bird?! – your go-to spot for exploring the
           amazing birds of the Western Palearctic!

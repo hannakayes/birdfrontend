@@ -1,11 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styles from "../styles/Navbar.module.css";
 import logo from "../assets/logo.png";
 
 const Navbar = () => {
+  const location = useLocation();
+  const isStartPage = location.pathname === "/";
+
   return (
-    <nav className={styles.navbar}>
+    <nav
+      className={`${styles.navbar} ${
+        isStartPage ? styles.startPageNavbar : ""
+      }`}
+    >
       <div className={styles.logo}>
         <Link to="/">
           <img src={logo} alt="logo" />

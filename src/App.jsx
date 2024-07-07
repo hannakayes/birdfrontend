@@ -17,17 +17,25 @@ const App = () => {
   return (
     <MantineProvider theme={theme}>
       <Router>
-        <div style={{ paddingTop: "80px", paddingBottom: "60px" }}>
+        <div
+          style={{
+            minHeight: "100vh",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
           <Navbar />
-          <Routes>
-            <Route path="/" element={<StartPage />} />
-            <Route path="/main" element={<MainPage />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<ContactDetails />} />
-            <Route path="/map" element={<Map />} />
-            <Route path="/details/:id" element={<DetailsPage />} />
-            <Route path="*" element={<Error404 />} />
-          </Routes>
+          <div style={{ flex: 1, overflowY: "auto" }}>
+            <Routes>
+              <Route path="/" element={<StartPage />} />
+              <Route path="/main" element={<MainPage />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<ContactDetails />} />
+              <Route path="/map" element={<Map />} />
+              <Route path="/details/:id" element={<DetailsPage />} />
+              <Route path="*" element={<Error404 />} />
+            </Routes>
+          </div>
           <Footer />
         </div>
       </Router>
