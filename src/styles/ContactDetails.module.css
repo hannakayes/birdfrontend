@@ -40,3 +40,9 @@
   font-size: 0.8rem; /* Smaller font size for the last paragraph */
   color: #000000; /* Adjust color if necessary */
 }
+
+.logo {
+  width: 200px; /* Adjust the width of the logo as needed */
+  height: auto; /* Ensure the logo scales proportionally */
+  margin-bottom: 0.5rem; /* Add margin below the logo */
+}
