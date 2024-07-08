@@ -1,0 +1,50 @@
+/* BirdDetails.module.css */
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 40rem; /* Width for the larger card */
+  height: 30rem; /* Height for the larger card */
+  margin: 5rem 3rem 3rem 3rem; /* Adjust margin for positioning */
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardHeader {
+  padding: 1rem;
+  background-color: #f0f0f0;
+  text-align: center;
+}
+
+.cardTitle {
+  margin-top: 0;
+  font-size: 2rem;
+  color: #333;
+}
+
+.cardBody {
+  flex: 1;
+  padding: 1rem;
+}
+
+.cardDetails {
+  margin-top: 1rem;
+}
+
+.detail {
+  margin-bottom: 0.5rem;
+}
+
+.detail strong {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.detail span {
+  color: #888;
+  font-style: italic;
+}

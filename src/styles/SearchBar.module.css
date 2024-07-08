@@ -22,13 +22,13 @@
 }
 
 .searchButton {
-  width: 20%; /* Match the width of the search bar */
-  padding: 1rem;
+  width: 15%; /* Match the width of the search bar */
+  padding: 0.5rem;
   border: none;
   border-radius: 40px; /* Match the border radius of the search bar */
   background-color: #ffee00;
   color: black;
-  font-size: 1.2rem;
+  font-size: 1rem;
   cursor: pointer;
   margin-top: 0.5rem; /* Space between input and button */
   transition: background-color 0.3s ease;

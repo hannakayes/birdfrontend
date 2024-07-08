@@ -16,4 +16,24 @@
   margin-bottom: 1rem; /* Adjust margin bottom for paragraphs */
 }
 
-/* Add more specific styling as needed */
+.backButton {
+  margin-top: 1rem; /* Space from paragraph */
+  text-align: center; /* Center-align button */
+}
+
+.backLink {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 40px; /* Match the border radius of the search bar */
+  background-color: #ffee00;
+  color: black;
+  font-size: 1rem;
+  text-decoration: none; /* Remove underline */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.backLink:hover {
+  background-color: #f8ba4b;
+}

@@ -1,10 +1,13 @@
 .mainPage {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 2rem;
-  margin: 4rem auto; /* Adjust margin as needed */
-  max-width: 1200px;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 5rem; /* Add margin-top for spacing */
+}
+
+.cardLink {
+  text-decoration: none;
 }
 
 .mainPage > * {
@@ -40,10 +43,32 @@
 
 .mainPage a:hover {
   color: #000000;
-  background-color: #ffee00;
+  background-color: transparent; /* Remove background color */
 }
 
 .mainPage .smallText {
   font-size: 0.8rem;
   color: #666;
+}
+
+.mainPage .addBirdButton {
+  position: absolute;
+  bottom: 4rem;
+  right: 1rem;
+  width: 10%;
+  padding: 1rem;
+  border: none;
+  border-radius: 40px;
+  background-color: #ffee00;
+  text-align: center;
+  font-weight: normal;
+  color: black;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.mainPage .addBirdButton:hover {
+  background-color: #ffcc00;
+  font-weight: normal;
 }
