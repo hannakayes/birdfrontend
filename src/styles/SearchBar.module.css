@@ -1,3 +1,10 @@
+.searchContainer {
+  display: flex;
+  flex-direction: column; /* Arrange children in a column */
+  align-items: center; /* Center-align children */
+  margin: 1rem 0;
+}
+
 .searchBar {
   width: 70%;
   text-align: center;
@@ -12,4 +19,31 @@
 
 .searchBar:focus {
   border-color: #ffee00;
+}
+
+.searchButton {
+  width: 20%; /* Match the width of the search bar */
+  padding: 1rem;
+  border: none;
+  border-radius: 40px; /* Match the border radius of the search bar */
+  background-color: #ffee00;
+  color: black;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-top: 0.5rem; /* Space between input and button */
+  transition: background-color 0.3s ease;
+}
+
+.searchButton:hover {
+  background-color: #f8ba4b;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 1rem; /* Space between button and results */
+}
+
+li {
+  margin: 0.5rem 0;
 }

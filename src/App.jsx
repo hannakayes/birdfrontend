@@ -8,6 +8,7 @@ import About from "./pages/About";
 import ContactDetails from "./pages/ContactDetails";
 import Error404 from "./pages/Error404";
 import Map from "./pages/Map";
+import CountryBirds from "./pages/CountryBirds"; // Import CountryBirds component
 import DetailsPage from "./pages/DetailsPage"; // Correct import path
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -80,10 +81,19 @@ const App = () => {
             <Routes>
               <Route path="/" element={<StartPage birds={birds} />} />
               <Route path="/main" element={<MainPage birds={birds} />} />
-              <Route path="/details/:id" element={<DetailsPage birds={birds} />} /> {/* Ensure correct path */}
+              <Route
+                path="/details/:id"
+                element={<DetailsPage birds={birds} />}
+              />{" "}
+              {/* Ensure correct path */}
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<ContactDetails />} />
               <Route path="/map" element={<Map />} />
+              <Route
+                path="/country-birds/:countryName"
+                element={<CountryBirds />}
+              />{" "}
+              {/* Add CountryBirds route */}
               <Route path="/error" element={<Error404 />} />
               <Route path="*" element={<Error404 />} />
             </Routes>

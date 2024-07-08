@@ -1,9 +1,9 @@
 import React from "react";
-import { useParams, Link } from "react-router-dom"; // Import Link and useParams
+import { useParams, Link } from "react-router-dom";
 import styles from "../styles/CountryBirds.module.css";
 
 const CountryBirds = () => {
-  const { countryName } = useParams(); // Use useParams hook to get route parameters
+  const { countryName } = useParams();
 
   // Placeholder content for demonstration
   return (
