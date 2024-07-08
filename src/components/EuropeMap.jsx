@@ -14,7 +14,6 @@ const EuropeMap = () => {
 
   return (
     <div className={styles.mapPage}>
-      <h1>Bird Map</h1>
       <div className={styles.mapContainer}>
         <ComposableMap
           projection="geoMercator"

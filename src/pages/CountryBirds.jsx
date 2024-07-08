@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom"; // Use useParams instead of useRouteMatch
+import { useParams, Link } from "react-router-dom"; // Import Link and useParams
 import styles from "../styles/CountryBirds.module.css";
 
 const CountryBirds = () => {
@@ -8,8 +8,15 @@ const CountryBirds = () => {
   // Placeholder content for demonstration
   return (
     <div className={styles.countryBirdsPage}>
-      <h2>Birds in {countryName}</h2>
+      <h2>Look at all those birds who live in {countryName}!</h2>
       <p>List of birds found in {countryName} will be displayed here.</p>
+
+      {/* Back to Map button */}
+      <div className={styles.backButton}>
+        <Link to="/map" className={styles.backLink}>
+          Back to Map
+        </Link>
+      </div>
     </div>
   );
 };
