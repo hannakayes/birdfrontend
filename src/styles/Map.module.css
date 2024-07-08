@@ -1,42 +1,22 @@
-/* Map.module.css */
-
 .mapPage {
   padding: 2rem;
-  margin: 3rem 3rem; /* Larger margin at the top, left, and right */
-  text-align: center; /* Adjust text alignment if necessary */
+  margin: 3rem;
+  text-align: center;
+}
+
+.mapContainer {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  border: 2px solid #ffee00; /* Example border for visualization */
+}
+
+.mapContainer svg {
+  width: 100%;
+  height: auto; /* Adjust as needed; SVGs typically need explicit height */
 }
 
 .mapPage h1 {
-  font-size: 2rem; /* Adjust heading size if necessary */
-  color: #333; /* Example color */
-}
-
-.mapPage p {
-  line-height: 1.6; /* Adjust line height if necessary */
-  margin-bottom: 1rem; /* Adjust margin bottom for paragraphs */
-}
-
-.mapPage ul {
-  list-style-type: disc; /* Example list style */
-  margin-left: 0.1rem; /* Adjust list margin if necessary */
-}
-
-.mapPage li {
-  margin-bottom: 0.5rem; /* Adjust margin between list items */
-}
-
-.mapPage a {
-  text-decoration: none;
+  font-size: 2rem;
   color: #333;
-  font-weight: bold;
-}
-
-.mapPage a:hover {
-  color: #000000; /* Change text color on hover */
-  background-color: #ffee00;
-}
-
-.mapPage .smallText {
-  font-size: 0.8rem; /* Smaller font size for the last paragraph */
-  color: #000000; /* Adjust color if necessary */
 }

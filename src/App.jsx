@@ -7,7 +7,8 @@ import MainPage from "./pages/MainPage";
 import About from "./pages/About";
 import ContactDetails from "./pages/ContactDetails";
 import Error404 from "./pages/Error404";
-import Map from "./pages/Map";
+import EuropeMap from "./components/EuropeMap"; // Import EuropeMap component
+import CountryBirds from "./pages/CountryBirds"; // Import CountryBirds component
 import DetailsPage from "./pages/DetailsPage";
 import Navbar from "./components/Navbar"; // Adjust path to your Navbar component
 import Footer from "./components/Footer";
@@ -31,7 +32,11 @@ const App = () => {
               <Route path="/main" element={<MainPage />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<ContactDetails />} />
-              <Route path="/map" element={<Map />} />
+              <Route path="/map" element={<EuropeMap />} />
+              <Route
+                path="/country-birds/:countryName"
+                element={<CountryBirds />}
+              />
               <Route path="/details/:id" element={<DetailsPage />} />
               <Route path="*" element={<Error404 />} />
             </Routes>
