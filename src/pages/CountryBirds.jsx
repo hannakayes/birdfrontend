@@ -8,7 +8,7 @@ const CountryBirds = () => {
   // Placeholder content for demonstration
   return (
     <div className={styles.countryBirdsPage}>
-      <h2>Look at all those birds who live in {countryName}!</h2>
+      <h2>Look at all those pretty birds that live in {countryName}!</h2>
       <p>List of birds found in {countryName} will be displayed here.</p>
 
       {/* Back to Map button */}
