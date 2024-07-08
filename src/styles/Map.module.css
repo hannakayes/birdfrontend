@@ -5,10 +5,19 @@
 }
 
 .mapContainer {
+  /* Styles for the map container */
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  border: 2px solid #ffee00; /* Example border for visualization */
+  background-color: #eceff1; /* Set your desired background color */
+  border-radius: 8px; /* Example border radius */
+  overflow: hidden; /* Ensure map stays within container */
+}
+
+.geographyLink {
+  /* Styles for geography links */
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .mapContainer svg {

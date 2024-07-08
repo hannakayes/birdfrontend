@@ -1,0 +1,19 @@
+/* CountryBirds.module.css */
+
+.countryBirdsPage {
+  padding: 2rem;
+  margin: 3rem 3rem; /* Larger margin at the top, left, and right */
+  text-align: left; /* Adjust text alignment if necessary */
+}
+
+.countryBirdsPage h2 {
+  font-size: 2rem; /* Adjust heading size if necessary */
+  color: #333; /* Example color */
+}
+
+.countryBirdsPage p {
+  line-height: 1.6; /* Adjust line height if necessary */
+  margin-bottom: 1rem; /* Adjust margin bottom for paragraphs */
+}
+
+/* Add more specific styling as needed */
