@@ -1,3 +1,4 @@
+//StartPage.jsx
 import React from "react";
 import SearchBar from "../components/SearchBar";
 import styles from "../styles/StartPage.module.css";

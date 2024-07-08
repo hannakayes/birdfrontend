@@ -1,17 +1,10 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import styles from "../styles/DetailsPage.module.css";
+import { useParams } from "react-router-dom";
+import BirdDetails from "./BirdDetails"; // Correct import path
 
-const DetailsPage = () => {
-  return (
-    <div>
-      <div className={styles.detailsPage}>
-        <h1>Bird Details</h1>
-        {/* Bird details will go here */}
-      </div>
-    </div>
-  );
+const DetailsPage = ({ birds }) => {
+  const { id } = useParams();
+  return <BirdDetails birds={birds} id={id} />;
 };
 
 export default DetailsPage;

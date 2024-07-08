@@ -1,3 +1,5 @@
+//BirdCard.jsx
+
 import React from "react";
 import PropTypes from "prop-types";
 import styles from "../styles/BirdCard.module.css"; // Adjust the path as per your project structure
