@@ -1,0 +1,73 @@
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+}
+
+.modalContent {
+  background-color: #fefefe;
+  margin: 10% auto; /* Center the modal vertically */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px; /* Adjust as needed */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+input,
+textarea,
+select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+button {
+  background-color: #ffee00;
+  color: black;
+  border: none;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  border-radius: 40px;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #f8ba4b;
+}
