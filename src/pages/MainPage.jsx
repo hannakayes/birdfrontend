@@ -9,28 +9,25 @@ const MainPage = () => {
   const [showBirdForm, setShowBirdForm] = useState(false);
 
   useEffect(() => {
-    const fetchBirds = async () => {
-      try {
-        const response = await fetch(`${API_URL}/birds`);
-        const data = await response.json();
-
-        // Sort birds by order and then alphabetically by name
-        const sortedBirds = data.sort((a, b) => {
-          // First sort by order
-          if (a.order < b.order) return -1;
-          if (a.order > b.order) return 1;
-          // If order is the same, sort by name
-          return a.name.localeCompare(b.name);
-        });
-
-        setBirds(sortedBirds);
-      } catch (error) {
-        console.error("Error fetching birds:", error);
-      }
-    };
-
     fetchBirds();
   }, []);
+
+  const fetchBirds = async () => {
+    try {
+      const response = await fetch(`${API_URL}/birds`);
+      const data = await response.json();
+
+      const sortedBirds = data.sort((a, b) => {
+        if (a.order < b.order) return -1;
+        if (a.order > b.order) return 1;
+        return a.name.localeCompare(b.name);
+      });
+
+      setBirds(sortedBirds);
+    } catch (error) {
+      console.error("Error fetching birds:", error);
+    }
+  };
 
   const handleAddBird = () => {
     setShowBirdForm(true);
@@ -40,23 +37,57 @@ const MainPage = () => {
     setShowBirdForm(false);
   };
 
-  // Mock data for families, orders, and statuses (replace with actual data from API or constants)
-  const families = ["Family 1", "Family 2", "Family 3"];
-  const orders = ["Order 1", "Order 2", "Order 3"];
-  const statuses = ["Status 1", "Status 2", "Status 3"];
+  const addNewBird = async (newBird) => {
+    try {
+      const response = await fetch(`${API_URL}/birds`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newBird),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to add bird");
+      }
+
+      // Fetch updated list of birds after adding a new bird
+      fetchBirds();
+      setShowBirdForm(false); // Close the form after successful addition
+    } catch (error) {
+      console.error("Error adding bird:", error);
+    }
+  };
+
+  const handleDeleteBird = async (id) => {
+    try {
+      const response = await fetch(`${API_URL}/birds/${id}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to delete bird");
+      }
+
+     
+      const updatedBirds = birds.filter((bird) => bird.id !== id);
+      setBirds(updatedBirds);
+    } catch (error) {
+      console.error("Error deleting bird:", error);
+    }
+  };
 
   return (
     <div className={styles.mainPage}>
       {birds.map((bird) => (
-        <BirdCard key={bird.id} bird={bird} />
+        <BirdCard
+          key={bird.id}
+          bird={bird}
+          onDelete={handleDeleteBird}
+        />
       ))}
       {showBirdForm && (
-        <BirdForm
-          onClose={handleCloseForm}
-          families={families}
-          orders={orders}
-          statuses={statuses}
-        />
+        <BirdForm onClose={handleCloseForm} addBird={addNewBird} />
       )}
       <button className={styles.addBirdButton} onClick={handleAddBird}>
         Add Bird

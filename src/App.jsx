@@ -8,10 +8,11 @@ import About from "./pages/About";
 import ContactDetails from "./pages/ContactDetails";
 import Error404 from "./pages/Error404";
 import Map from "./pages/Map";
-import CountryBirds from "./pages/CountryBirds"; // Import CountryBirds component
-import DetailsPage from "./pages/DetailsPage"; // Correct import path
+import CountryBirds from "./pages/CountryBirds"; 
+import DetailsPage from "./pages/DetailsPage"; 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import BirdForm from "./components/BirdForm";
 import "./styles/global.css";
 
 const App = () => {
@@ -66,6 +67,17 @@ const App = () => {
     },
   ];
 
+  const handleAddBird = (birdData) => {
+    
+    console.log("Adding bird:", birdData);
+   
+  };
+
+  const handleClose = () => {
+  
+    console.log("Form closed");
+  };
+
   return (
     <MantineProvider theme={theme}>
       <Router>
@@ -82,18 +94,20 @@ const App = () => {
               <Route path="/" element={<StartPage birds={birds} />} />
               <Route path="/main" element={<MainPage birds={birds} />} />
               <Route
+                path="/add-bird"
+                element={<BirdForm onClose={handleClose} addBird={handleAddBird} />}
+              />
+              <Route
                 path="/details/:id"
                 element={<DetailsPage birds={birds} />}
-              />{" "}
-              {/* Ensure correct path */}
+              />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<ContactDetails />} />
               <Route path="/map" element={<Map />} />
               <Route
                 path="/country-birds/:countryName"
                 element={<CountryBirds />}
-              />{" "}
-              {/* Add CountryBirds route */}
+              />
               <Route path="/error" element={<Error404 />} />
               <Route path="*" element={<Error404 />} />
             </Routes>

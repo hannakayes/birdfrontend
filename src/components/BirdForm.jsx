@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styles from "../styles/BirdForm.module.css";
 
-const BirdForm = ({ onClose, families, orders, statuses }) => {
+const BirdForm = ({ onClose, addBird }) => {
   const [formData, setFormData] = useState({
     name: "",
     latin_name: "",
@@ -10,7 +10,7 @@ const BirdForm = ({ onClose, families, orders, statuses }) => {
     description: "",
     image: "",
     family: [],
-    order: [],
+    order: "",
     status: [],
   });
 
@@ -35,9 +35,7 @@ const BirdForm = ({ onClose, families, orders, statuses }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission logic (e.g., send data to backend)
-    // After submission, close the form
-    onClose();
+    addBird(formData); // Send new bird data to the MainPage component
   };
 
   return (
@@ -106,11 +104,13 @@ const BirdForm = ({ onClose, families, orders, statuses }) => {
               onChange={handleMultiSelectChange}
               required
             >
-              {families.map((family) => (
-                <option key={family} value={family}>
-                  {family}
-                </option>
-              ))}
+              {/* Replace with actual options */}
+              <option value="Accipitridae">Accipitridae</option>
+              <option value="Anatidae">Anatidae</option>
+              <option value="Apodidae">Apodidae</option>
+              <option value="Caprimulgidae">Caprimulgidae</option>
+              <option value="Scolopacidae">Scolopacidae</option>
+              
             </select>
           </label>
           <label>
@@ -122,11 +122,11 @@ const BirdForm = ({ onClose, families, orders, statuses }) => {
               onChange={handleMultiSelectChange}
               required
             >
-              {orders.map((order) => (
-                <option key={order} value={order}>
-                  {order}
-                </option>
-              ))}
+              {/* Replace with actual options */}
+              <option value="PELECANIFORMES">PELECANIFORMES</option>
+              <option value="PICIFORMES">PICIFORMES</option>
+              <option value="PODICIPEDIFORMES">PODICIPEDIFORMES</option>
+              <option value="ACCIPITRIFORMES">ACCIPITRIFORMES</option>
             </select>
           </label>
           <label>
@@ -138,11 +138,10 @@ const BirdForm = ({ onClose, families, orders, statuses }) => {
               onChange={handleMultiSelectChange}
               required
             >
-              {statuses.map((status) => (
-                <option key={status} value={status}>
-                  {status}
-                </option>
-              ))}
+              {/* Replace with actual options */}
+              <option value="Common">Common</option>
+              <option value="Vulnerable">Vulnerable</option>
+              <option value="Declining">Declining</option>
             </select>
           </label>
           <button type="submit" className={styles.searchButton}>
@@ -156,9 +155,7 @@ const BirdForm = ({ onClose, families, orders, statuses }) => {
 
 BirdForm.propTypes = {
   onClose: PropTypes.func.isRequired,
-  families: PropTypes.arrayOf(PropTypes.string).isRequired,
-  orders: PropTypes.arrayOf(PropTypes.string).isRequired,
-  statuses: PropTypes.arrayOf(PropTypes.string).isRequired,
+  addBird: PropTypes.func.isRequired,
 };
 
 export default BirdForm;

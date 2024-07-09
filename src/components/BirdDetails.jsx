@@ -4,7 +4,7 @@ import styles from "../styles/BirdDetails.module.css";
 
 const BirdDetails = ({ bird }) => {
   const backgroundImageStyle = {
-    backgroundImage: `url(${bird.image})`, // Use bird.image as background image
+    backgroundImage: `url(${bird.image})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
   };

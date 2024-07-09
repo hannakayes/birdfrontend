@@ -24,10 +24,11 @@
 }
 
 .cardImage {
-  width: 6.25rem; /* Adjusted width for the image */
-  height: 6.25rem; /* Adjusted height for the image */
+  width: 100%; /* Adjusted width for the image to fill its container */
+  height: 12rem; /* Adjusted height for the image */
   object-fit: cover;
-  border-radius: 50%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 .cardTitle {
@@ -35,6 +36,7 @@
   font-size: 1.5rem;
   color: #333;
   font-weight: normal; /* Ensure title text is not bold */
+  text-align: center; /* Center align the title */
 }
 
 .cardBody {
@@ -51,6 +53,8 @@
   display: -webkit-box;
   -webkit-line-clamp: 4; /* Number of lines to show */
   -webkit-box-orient: vertical;
+  max-height: calc(1.4 * 4); /* Fallback for browsers that don't support -webkit-line-clamp */
+  line-clamp: 4;
 }
 
 .cardDetails {
@@ -69,5 +73,35 @@
 
 .detail span {
   color: #888;
-  font-style: italic; /* Make scientific name italic */
+  font-style: italic;
+}
+
+.cardButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.cardText {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; 
+  line-clamp: 4;
+}
+
+
+@supports not (-webkit-line-clamp: 1) {
+  .cardText {
+    max-height: calc(1rem * 1.4); 
+  }
 }
