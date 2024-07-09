@@ -1,7 +1,5 @@
 //Error404.jsx
 import React from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import styles from "../styles/Error404.module.css";
 
 const Error404 = () => {

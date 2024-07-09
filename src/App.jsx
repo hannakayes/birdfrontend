@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { MantineProvider } from "@mantine/core";
 import theme from "./styles/theme";
@@ -8,73 +8,51 @@ import About from "./pages/About";
 import ContactDetails from "./pages/ContactDetails";
 import Error404 from "./pages/Error404";
 import Map from "./pages/Map";
-import CountryBirds from "./pages/CountryBirds"; 
-import DetailsPage from "./pages/DetailsPage"; 
+import CountryBirds from "./pages/CountryBirds";
+import DetailsPage from "./pages/DetailsPage";
+import SearchResultsPage from "./pages/SearchResultsPage"; // Import SearchResultsPage
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import BirdForm from "./components/BirdForm";
+import SearchBar from "./components/SearchBar"; // Import SearchBar component
 import "./styles/global.css";
 
 const App = () => {
-  const birds = [
-    {
-      id: "0",
-      name: "Grey Wagtail",
-      latin_name: "Motacilla cinerea",
-      order: "PASSERIFORMES",
-      family: "Motacillidae",
-      habitat: "Streams, rivers, wetlands",
-      description:
-        "The Grey Wagtail is a small bird with grey upperparts, yellow underparts, and a long, constantly wagging tail. It feeds on insects and is often seen near fast-flowing water.",
-      status: "Common",
-      image: "/assets/birds/GreyWagtail.jpg",
-    },
-    {
-      id: "1",
-      name: "Eurasian Magpie",
-      latin_name: "Pica pica",
-      order: "PASSERIFORMES",
-      family: "Corvidae",
-      habitat: "Forests, urban areas",
-      description:
-        "The Eurasian Magpie is a black and white bird with a long tail and noisy chattering calls. It is omnivorous and adaptable, thriving in a variety of habitats.",
-      status: "Common",
-      image: "/assets/birds/EurasianMagpie.jpg",
-    },
-    {
-      id: "2",
-      name: "Northern Goshawk",
-      latin_name: "Accipiter gentilis",
-      order: "ACCIPITRIFORMES",
-      family: "Accipitridae",
-      habitat: "Forests, woodlands",
-      description:
-        "The Northern Goshawk is a large bird of prey with broad wings and a long tail. They are powerful hunters of birds and mammals, often hunting in dense forests.",
-      status: "Common",
-      image: "/assets/birds/NorthernGoshawk.jpg",
-    },
-    {
-      id: "3",
-      name: "Eurasian Bullfinch",
-      latin_name: "Pyrrhula pyrrhula",
-      order: "PASSERIFORMES",
-      family: "Fringillidae",
-      habitat: "Woodlands, orchards, parks",
-      description:
-        "The Eurasian Bullfinch is a stocky bird with a black cap and face, contrasting with a pinkish-red breast and gray back. It feeds mainly on seeds, buds, and berries.",
-      status: "Common",
-      image: "/assets/birds/EurasianBullfinch.jpg",
-    },
-  ];
+  const [birds, setBirds] = useState([]);
+
+  useEffect(() => {
+    fetchBirds();
+  }, []);
+
+  const fetchBirds = async () => {
+    try {
+      const response = await fetch("http://localhost:4000/birds");
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const contentType = response.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+        const responseData = await response.text(); // Read response as text
+        console.error("Unexpected response format:", responseData);
+        throw new TypeError("Expected JSON response but got something else");
+      }
+
+      const data = await response.json();
+      setBirds(data);
+    } catch (error) {
+      console.error("Error fetching birds:", error);
+      // Optionally, you could set birds to an empty array or handle the error in another way
+      // setBirds([]);
+    }
+  };
 
   const handleAddBird = (birdData) => {
-    
     console.log("Adding bird:", birdData);
-   
   };
 
   const handleClose = () => {
-  
     console.log("Form closed");
   };
 
@@ -91,11 +69,16 @@ const App = () => {
           <Navbar />
           <div style={{ flex: 1, overflowY: "auto" }}>
             <Routes>
-              <Route path="/" element={<StartPage birds={birds} />} />
+              <Route
+                path="/"
+                element={<StartPage birds={birds} fetchBirds={fetchBirds} />}
+              />
               <Route path="/main" element={<MainPage birds={birds} />} />
               <Route
                 path="/add-bird"
-                element={<BirdForm onClose={handleClose} addBird={handleAddBird} />}
+                element={
+                  <BirdForm onClose={handleClose} addBird={handleAddBird} />
+                }
               />
               <Route
                 path="/details/:id"
@@ -107,6 +90,10 @@ const App = () => {
               <Route
                 path="/country-birds/:countryName"
                 element={<CountryBirds />}
+              />
+              <Route
+                path="/search-results"
+                element={<SearchResultsPage birds={birds} />} // Ensure SearchResultsPage is correctly used
               />
               <Route path="/error" element={<Error404 />} />
               <Route path="*" element={<Error404 />} />

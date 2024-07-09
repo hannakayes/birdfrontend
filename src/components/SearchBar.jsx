@@ -1,28 +1,35 @@
-//SearchBar.jsx
 import React, { useState, useEffect } from "react";
 import styles from "../styles/SearchBar.module.css";
 import { useNavigate } from "react-router-dom";
 
-const SearchBar = ({ birds }) => {
+const SearchBar = ({ birds, fetchBirds, setSearchResults }) => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
 
-  // Function to handle input change
   const handleInputChange = (event) => {
-    const term = event.target.value.trim();
-    setSearchTerm(term);
+    setSearchTerm(event.target.value);
   };
 
   const handleSearch = () => {
-    const exactMatch = searchResults.find(
-      (bird) => bird.name.toLowerCase() === searchTerm.toLowerCase()
+    const term = searchTerm.trim().toLowerCase();
+
+    const filteredResults = birds.filter(
+      (bird) =>
+        bird.name.toLowerCase().includes(term) ||
+        bird.latin_name.toLowerCase().includes(term) ||
+        bird.habitat.toLowerCase().includes(term)
+    );
+
+    setSearchResults(filteredResults);
+
+    const exactMatch = filteredResults.find(
+      (bird) => bird.name.toLowerCase() === term
     );
 
     if (exactMatch) {
       navigate(`/details/${exactMatch.id}`);
-    } else if (searchResults.length > 0) {
-      navigate(`/details/${searchResults[0].id}`);
+    } else if (filteredResults.length > 0) {
+      navigate("/search-results");
     } else {
       navigate("/error");
     }
@@ -34,30 +41,23 @@ const SearchBar = ({ birds }) => {
     }
   };
 
-  const filterResults = (term) => {
-    if (!birds) {
-      return;
-    }
-
-    const filteredResults = birds.filter(
-      (bird) =>
-        bird.name.toLowerCase().includes(term.toLowerCase()) ||
-        bird.latin_name.toLowerCase().includes(term.toLowerCase())
-    );
-
-    setSearchResults(filteredResults);
-  };
+  useEffect(() => {
+    fetchBirds(); // Fetch birds on component mount
+  }, [fetchBirds]);
 
   useEffect(() => {
-    filterResults(searchTerm);
-  }, [birds, searchTerm]);
+    if (searchTerm) {
+      handleSearch(); // Trigger search on searchTerm change
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchTerm]);
 
   return (
     <div className={styles.searchContainer}>
       <input
         type="text"
         id="searchInput"
-        placeholder="Search birds by name or species..."
+        placeholder="Search birds by name, species, or habitat..."
         className={styles.searchBar}
         value={searchTerm}
         onChange={handleInputChange}
@@ -66,16 +66,8 @@ const SearchBar = ({ birds }) => {
       <button onClick={handleSearch} className={styles.searchButton}>
         Search
       </button>
-      <ul>
-        {searchResults.map((bird) => (
-          <li key={bird.id}>
-            {bird.name} - {bird.latin_name}
-          </li>
-        ))}
-      </ul>
     </div>
   );
 };
 
 export default SearchBar;
-
