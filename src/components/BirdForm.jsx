@@ -9,9 +9,9 @@ const BirdForm = ({ onClose, addBird }) => {
     habitat: "",
     description: "",
     image: "",
-    family: [],
+    family: "",
     order: "",
-    status: [],
+    status: "",
   });
 
   const handleInputChange = (event) => {
@@ -19,17 +19,6 @@ const BirdForm = ({ onClose, addBird }) => {
     setFormData({
       ...formData,
       [name]: value,
-    });
-  };
-
-  const handleMultiSelectChange = (event) => {
-    const { name, options } = event.target;
-    const selectedValues = Array.from(options)
-      .filter((option) => option.selected)
-      .map((option) => option.value);
-    setFormData({
-      ...formData,
-      [name]: selectedValues,
     });
   };
 
@@ -46,64 +35,55 @@ const BirdForm = ({ onClose, addBird }) => {
         </span>
         <h2>Add Bird</h2>
         <form onSubmit={handleSubmit}>
-          <label>
-            Bird Name:
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleInputChange}
-              required
-            />
-          </label>
-          <label>
-            Latin Name:
-            <input
-              type="text"
-              name="latin_name"
-              value={formData.latin_name}
-              onChange={handleInputChange}
-              required
-            />
-          </label>
-          <label>
-            Habitat:
-            <input
-              type="text"
-              name="habitat"
-              value={formData.habitat}
-              onChange={handleInputChange}
-              required
-            />
-          </label>
-          <label>
-            Description:
-            <textarea
-              name="description"
-              value={formData.description}
-              onChange={handleInputChange}
-              required
-            />
-          </label>
-          <label>
-            Image URL:
-            <input
-              type="text"
-              name="image"
-              value={formData.image}
-              onChange={handleInputChange}
-              required
-            />
-          </label>
-          <label>
-            Family:
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
+            placeholder="Bird Name"
+            required
+          />
+          <input
+            type="text"
+            name="latin_name"
+            value={formData.latin_name}
+            onChange={handleInputChange}
+            placeholder="Latin Name"
+            required
+          />
+          <input
+            type="text"
+            name="habitat"
+            value={formData.habitat}
+            onChange={handleInputChange}
+            placeholder="Habitat"
+            required
+          />
+          <textarea
+            name="description"
+            value={formData.description}
+            onChange={handleInputChange}
+            placeholder="Description"
+            required
+          />
+          <input
+            type="text"
+            name="image"
+            value={formData.image}
+            onChange={handleInputChange}
+            placeholder="Image URL"
+            required
+          />
+          <div className={styles.dropdownContainer}>
             <select
               name="family"
-              multiple
               value={formData.family}
-              onChange={handleMultiSelectChange}
+              onChange={handleInputChange}
               required
             >
+              <option value="" disabled>
+                Select Family
+              </option>
               {/* Replace with actual options */}
               <option value="Accipitridae">Accipitridae</option>
               <option value="Anatidae">Anatidae</option>
@@ -151,18 +131,17 @@ const BirdForm = ({ onClose, addBird }) => {
               <option value="Meropidae">Meropidae</option>
               <option value="Remizidae">Remizidae</option>
               <option value="Cuculidae">Cuculidae</option>
-             
             </select>
-          </label>
-          <label>
-            Order:
+
             <select
               name="order"
-              multiple
               value={formData.order}
-              onChange={handleMultiSelectChange}
+              onChange={handleInputChange}
               required
             >
+              <option value="" disabled>
+                Select Order
+              </option>
               {/* Replace with actual options */}
               <option value="PELECANIFORMES">PELECANIFORMES</option>
               <option value="PICIFORMES">PICIFORMES</option>
@@ -184,24 +163,23 @@ const BirdForm = ({ onClose, addBird }) => {
               <option value="CICONIIFORMES">CICONIIFORMES</option>
               <option value="PROCELLARIIFORMES">PROCELLARIIFORMES</option>
               <option value="CUCULIFORMES">CUCULIFORMES</option>
-              
             </select>
-          </label>
-          <label>
-            Status:
+
             <select
               name="status"
-              multiple
               value={formData.status}
-              onChange={handleMultiSelectChange}
+              onChange={handleInputChange}
               required
             >
+              <option value="" disabled>
+                Select Status
+              </option>
               {/* Replace with actual options */}
               <option value="Common">Common</option>
               <option value="Vulnerable">Vulnerable</option>
               <option value="Declining">Declining</option>
             </select>
-          </label>
+          </div>
           <button type="submit" className={styles.searchButton}>
             Submit
           </button>

@@ -18,8 +18,15 @@ const MainPage = () => {
       const data = await response.json();
 
       const sortedBirds = data.sort((a, b) => {
+        // First, sort by order
         if (a.order < b.order) return -1;
         if (a.order > b.order) return 1;
+
+        // If orders are equal, then sort by family
+        if (a.family < b.family) return -1;
+        if (a.family > b.family) return 1;
+
+        // If orders and families are equal, then sort by name
         return a.name.localeCompare(b.name);
       });
 
@@ -69,7 +76,6 @@ const MainPage = () => {
         throw new Error("Failed to delete bird");
       }
 
-     
       const updatedBirds = birds.filter((bird) => bird.id !== id);
       setBirds(updatedBirds);
     } catch (error) {
@@ -80,11 +86,7 @@ const MainPage = () => {
   return (
     <div className={styles.mainPage}>
       {birds.map((bird) => (
-        <BirdCard
-          key={bird.id}
-          bird={bird}
-          onDelete={handleDeleteBird}
-        />
+        <BirdCard key={bird.id} bird={bird} onDelete={handleDeleteBird} />
       ))}
       {showBirdForm && (
         <BirdForm onClose={handleCloseForm} addBird={addNewBird} />

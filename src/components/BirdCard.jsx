@@ -7,18 +7,14 @@ const BirdCard = ({ bird, onDelete }) => {
   const imageUrl = bird.image || "";
 
   const handleDeleteClick = () => {
-    onDelete(bird.id); 
+    onDelete(bird.id);
   };
 
   return (
     <div className={styles.card}>
       <div className={styles.cardHeader}>
         {imageUrl && (
-          <img
-            src={imageUrl}
-            alt={bird.name}
-            className={styles.cardImage}
-          />
+          <img src={imageUrl} alt={bird.name} className={styles.cardImage} />
         )}
         <h2 className={styles.cardTitle}>{bird.name}</h2>
       </div>
@@ -43,16 +39,10 @@ const BirdCard = ({ bird, onDelete }) => {
           </div>
         </div>
         <div className={styles.cardButtons}>
-          <Link
-            to={`/details/${bird.id}`}
-            className={styles.cardLink}
-          >
+          <Link to={`/details/${bird.id}`} className={styles.cardLink}>
             View Details
           </Link>
-          <button
-            onClick={handleDeleteClick}
-            className={styles.deleteButton}
-          >
+          <button onClick={handleDeleteClick} className={styles.deleteButton}>
             Delete
           </button>
         </div>

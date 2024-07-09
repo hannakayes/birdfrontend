@@ -1,9 +1,31 @@
 /* About.module.css */
 
 .aboutPage {
-  padding: 2rem;
-  margin: 3rem 3rem; /* Larger margin at the top, left, and right */
+  padding: 2rem 5rem;
+  margin: 3rem 0; /* Larger margin at the top, left, and right */
   text-align: left; /* Adjust text alignment if necessary */
+  position: relative; /* Ensure relative positioning for absolute elements */
+  background-image: linear-gradient(
+    to bottom right,
+    #66666645,
+    rgb(255, 204, 0, 0.551)
+  );
+}
+
+.aboutPage::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place the gradient behind other content */
+  /* Gradient background */
+}
+
+.aboutContent {
+  position: relative; /* Ensure the content is positioned relative */
+  z-index: 1; /* Ensure content stays above background */
 }
 
 .aboutPage h1 {
@@ -32,8 +54,8 @@
 }
 
 .aboutPage a:hover {
-  color: #000000; /* Change text color to white */
-  background-color: #ffee00;
+  color: #000000; /* Change text color to black on hover */
+  background-color: #ffee00; /* Yellow background on hover */
 }
 
 .smallText {

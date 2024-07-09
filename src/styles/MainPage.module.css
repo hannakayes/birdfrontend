@@ -1,16 +1,27 @@
+/* About.module.css */
+
 .mainPage {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  margin-top: 5rem; /* Add margin-top for spacing */
+  padding-top: 6rem; /* Add padding-top for spacing */
+  background-image: linear-gradient(
+    to bottom right,
+    #66666645,
+    rgb(255, 204, 0, 0.551)
+  ); /* Gradient background */
+}
+
+.cardContainer {
+  margin-top: 0; /* Reset margin-top since padding is added to .mainPage */
 }
 
 .cardLink {
   text-decoration: none;
 }
 
-.mainPage > * {
+.cardContainer > * {
   flex: 0 1 calc(25% - 1rem); /* Adjust the width of each card */
   margin: 0.5rem; /* Adjust margin between cards */
 }

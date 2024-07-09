@@ -12,7 +12,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #eceff1; /* Set your desired background color */
+  background-image: linear-gradient(
+    to bottom right,
+    #66666645,
+    rgb(255, 204, 0, 0.551)
+  );
   overflow: hidden; /* Ensure map stays within container */
 }
 

@@ -46,7 +46,7 @@ const EuropeMap = () => {
                       strokeWidth: 0.75,
                     },
                     pressed: {
-                      fill: "#607D8B",
+                      fill: "#000000",
                       outline: "none",
                       stroke: "#FFFFFF",
                       strokeWidth: 0.75,

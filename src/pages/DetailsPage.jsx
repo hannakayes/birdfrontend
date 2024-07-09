@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import BirdDetails from "../components/BirdDetails"; // Ensure correct import path
-import API_URL from "../helpers/API_URL"; // Import your API_URL
+import { useParams, Link } from "react-router-dom";
+import BirdDetails from "../components/BirdDetails";
+import API_URL from "../helpers/API_URL";
+import styles from "../styles/DetailsPage.module.css"; // Import your CSS module for styling
 
 const DetailsPage = () => {
   const { id } = useParams();
@@ -22,10 +23,25 @@ const DetailsPage = () => {
   }, [id]);
 
   if (!bird) {
-    return <div>Loading...</div>; // Display loading indicator while fetching data
+    return <div>Loading...</div>; // Placeholder for loading state
   }
 
-  return <BirdDetails bird={bird} />;
+  return (
+    <div className={styles.detailsPage}>
+      <div
+        className={styles.detailsPageBackground}
+        style={{ backgroundImage: `url(${bird.image})` }}
+      />
+      <div className={styles.detailsPageContent}>
+        <BirdDetails bird={bird} />
+        <div className={styles.backButton}>
+          <Link to="/main" className={styles.backLink}>
+            Back
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default DetailsPage;

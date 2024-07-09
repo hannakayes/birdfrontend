@@ -3,18 +3,12 @@ import PropTypes from "prop-types";
 import styles from "../styles/BirdDetails.module.css";
 
 const BirdDetails = ({ bird }) => {
-  const backgroundImageStyle = {
-    backgroundImage: `url(${bird.image})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  };
-
   return (
     <div className={styles.card}>
       <div className={styles.cardHeader}>
         <h2 className={styles.cardTitle}>{bird.name}</h2>
       </div>
-      <div className={styles.cardBody} style={backgroundImageStyle}>
+      <div className={styles.cardBody}>
         <div className={styles.cardDetails}>
           <div className={styles.detail}>
             <strong>Scientific Name:</strong>{" "}

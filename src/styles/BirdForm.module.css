@@ -1,3 +1,5 @@
+/* BirdForm.module.css */
+
 .modal {
   display: block;
   position: fixed;
@@ -12,11 +14,11 @@
 
 .modalContent {
   background-color: #fefefe;
-  margin: 10% auto; /* Center the modal vertically */
-  padding: 20px;
+  margin: 15% auto; /* Center the modal vertically */
+  padding: 15px; /* Reduce padding */
   border: 1px solid #888;
-  width: 80%;
-  max-width: 600px; /* Adjust as needed */
+  width: 70%; /* Reduce width */
+  max-width: 400px; /* Adjust max-width for a smaller modal */
   border-radius: 10px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -24,7 +26,7 @@
 .close {
   color: #aaa;
   float: right;
-  font-size: 28px;
+  font-size: 20px; /* Reduce font size */
   font-weight: bold;
   cursor: pointer;
 }
@@ -42,32 +44,47 @@ form {
 }
 
 label {
-  margin-bottom: 1rem;
-  font-weight: bold;
+  display: none; /* Hide labels for select fields */
 }
 
 input,
 textarea,
 select {
-  padding: 0.5rem;
-  font-size: 1rem;
+  padding: 0.4rem; /* Reduce padding */
+  font-size: 0.75rem; /* Smaller font size */
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-top: 0.5rem;
   width: 100%;
 }
 
+/* Remove bold font-weight for options inside select */
+select option {
+  font-weight: normal;
+}
+
+textarea:focus {
+  border-color: yellow; /* Change border color on focus */
+}
+
 button {
   background-color: #ffee00;
   color: black;
   border: none;
-  padding: 0.75rem 1rem;
+  padding: 0.5rem; /* Reduce padding */
   cursor: pointer;
-  border-radius: 40px;
+  border-radius: 20px; /* Reduce border radius */
   margin-top: 1rem;
   transition: background-color 0.3s ease;
+  font-size: 0.875rem; /* Smaller font size */
+  width: 100%;
 }
 
 button:hover {
   background-color: #f8ba4b;
+}
+
+.dropdownContainer {
+  margin-top: 0.5rem;
+  width: 100%;
 }

@@ -24,3 +24,10 @@ h6 {
 p {
   color: #666;
 }
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none; /* Remove default outline */
+  border-color: #ffee00; /* Set border color on focus */
+}
