@@ -13,17 +13,24 @@ const SearchBar = ({ birds, fetchBirds, setSearchResults }) => {
   const handleSearch = () => {
     const term = searchTerm.trim().toLowerCase();
 
+    if (!term) {
+      setSearchResults([]);
+      navigate("/error");
+      return;
+    }
+
     const filteredResults = birds.filter(
       (bird) =>
         bird.name.toLowerCase().includes(term) ||
-        bird.latin_name.toLowerCase().includes(term) ||
-        bird.habitat.toLowerCase().includes(term)
+        bird.latin_name.toLowerCase().includes(term) 
+        
     );
 
     setSearchResults(filteredResults);
 
     const exactMatch = filteredResults.find(
-      (bird) => bird.name.toLowerCase() === term
+      (bird) => bird.name.toLowerCase() === term ||
+      bird.latin_name.toLowerCase() === term
     );
 
     if (exactMatch) {
@@ -42,15 +49,8 @@ const SearchBar = ({ birds, fetchBirds, setSearchResults }) => {
   };
 
   useEffect(() => {
-    fetchBirds(); // Fetch birds on component mount
+    fetchBirds(); 
   }, [fetchBirds]);
-
-  useEffect(() => {
-    if (searchTerm) {
-      handleSearch(); // Trigger search on searchTerm change
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchTerm]);
 
   return (
     <div className={styles.searchContainer}>

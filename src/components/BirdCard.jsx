@@ -26,7 +26,7 @@ const BirdCard = ({ bird, onDelete }) => {
         <p className={styles.cardText}>{bird.description}</p>
         <div className={styles.cardDetails}>
           <div className={styles.detail}>
-            <strong>Scientific Name:</strong>{" "}
+            <strong>Latin Name:</strong>{" "}
             <span className={styles.italic}>{bird.latin_name}</span>
           </div>
           <div className={styles.detail}>
