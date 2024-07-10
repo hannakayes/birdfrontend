@@ -51,7 +51,7 @@
 }
 .soundButton.active {
   color: white;
-  background-color: #f8ba4b;
+  background-color: rgba(248, 185, 75, 0.643);
   border-color: #f8ba4b;
 }
 

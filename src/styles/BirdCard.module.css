@@ -26,40 +26,15 @@
 }
 
 .cardHeader {
-  padding: 0.5rem;
+  padding: 1rem; /* Increased padding for header */
   background-color: #f0f0f0;
   text-align: center;
-}
-
-.cardImage {
-  position: relative; /* Ensure relative positioning for absolute shadow */
-  width: 100%; /* Image fills its container */
-  height: 12rem; /* Reduced image height */
-  object-fit: cover;
-  margin: 0; /* Remove margin */
-  border-radius: var(--card-radius);
-  border-top-right-radius: var(--card-radius);
-  overflow: hidden; /* Ensure overflow is hidden to clip shadow */
-}
-
-.cardImage img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top; /* Ensure image starts at the top */
-}
-
-.cardImage::before {
-  content: ""; /* Create pseudo-element for shadow */
-  position: absolute;
-  top: 5%;
-  left: 5%;
-  right: 5%;
-  bottom: 5%;
-  background: rgba(0, 0, 0, 0.4); /* Semi-transparent black */
-  z-index: 1; /* Ensure it's above the image */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Inner shadow */
-  border-radius: var(--card-radius); /* Inherit card radius */
+  position: relative; /* Ensure relative positioning */
+  display: flex; /* Use flexbox for aligning content */
+  align-items: flex-start; /* Align items to the start (top) */
+  justify-content: center; /* Center horizontally */
+  flex: 0 0 auto; /* Prevent header from growing */
+  min-height: 10rem; /* Adjusted height for the header */
 }
 
 .cardTitle {
@@ -71,7 +46,7 @@
 }
 
 .cardBody {
-  padding: 0.5rem;
+  padding: 1rem;
   flex: 1; /* Allow the card body to grow and fill space */
 }
 
