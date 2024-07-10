@@ -12,56 +12,92 @@
   border-radius: var(--card-radius);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  width: 24rem; /* Increased card width */
-  margin: 0.5rem; /* Gap between cards */
-  transition: transform 0.2s; /* Smooth hover effect */
+  width: 24rem;
+  margin: 0.5rem;
+  transition: transform 0.2s;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 20rem; /* Reduced card minimum height */
+  min-height: 20rem;
 }
 
 .card:hover {
-  transform: scale(1.02); /* Slightly enlarge on hover */
+  transform: scale(1.02);
 }
 
 .cardHeader {
-  padding: 1rem; /* Increased padding for header */
+  padding: 1rem;
   background-color: #f0f0f0;
   text-align: center;
-  position: relative; /* Ensure relative positioning */
-  display: flex; /* Use flexbox for aligning content */
-  align-items: flex-start; /* Align items to the start (top) */
-  justify-content: center; /* Center horizontally */
-  flex: 0 0 auto; /* Prevent header from growing */
-  min-height: 10rem; /* Adjusted height for the header */
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex: 0 0 auto;
+  min-height: 12rem;
 }
 
 .cardTitle {
-  margin-top: 0.5rem;
-  font-size: 1.25rem; /* Reduced font size */
+  margin: 0.5rem 0 0.25rem; /* Reduced margin between header and headline */
+  font-size: 1.25rem;
   color: #333;
-  font-weight: normal; /* Title text not bold */
-  text-align: center; /* Center align the title */
+  font-weight: normal;
+  text-align: center;
+}
+
+.favoriteButton {
+  background: none;
+  border: none;
+  color: #000000; /* Initial yellow color */
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0.8rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background-color: #f8ba4b; /* Initial yellow background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for color change */
+}
+
+.favoriteButton:hover {
+  color: #890f42; /* Light pink color on hover */
+  background-color: rgba(
+    255,
+    144,
+    161,
+    0.902
+  ); /* Light pink background on hover */
+}
+
+.favoriteActive {
+  color: #fd0b58;
+  background-color: rgba(255, 144, 161, 0.902);
 }
 
 .cardBody {
   padding: 1rem;
-  flex: 1; /* Allow the card body to grow and fill space */
+  flex: 1;
 }
 
 .cardText {
-  font-size: 0.875rem; /* Reduced font size */
+  margin-top: 0rem; /* Reduced margin between english name and description */
+  margin-bottom: 0.5rem; /* Further reduced margin between headline and description */
+  font-size: 0.875rem;
   color: #666;
-  line-height: 1.2; /* Adjusted line height */
+  line-height: 1.2;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 4; /* Number of lines to show */
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
-  max-height: calc(
-    1.2 * 4
-  ); /* Fallback for browsers that don't support -webkit-line-clamp */
+  max-height: calc(1.2 * 4);
   line-clamp: 4;
 }
 
@@ -71,8 +107,8 @@
 
 .detail {
   margin-bottom: 0.25rem;
-  font-size: 0.875rem; /* Reduced font size */
-  font-weight: normal; /* Details text not bold */
+  font-size: 0.875rem;
+  font-weight: normal;
 }
 
 .detail strong {

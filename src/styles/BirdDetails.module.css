@@ -1,4 +1,10 @@
-/* BirdDetails.module.css */
+:root {
+  --card-aspect: 0.718;
+  --card-radius: 10px;
+  --card-edge: hsl(47, 100%, 78%);
+  --card-back: hsl(205, 100%, 25%);
+  --card-glow: hsl(175, 100%, 90%);
+}
 
 .card {
   background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
@@ -44,11 +50,15 @@
   cursor: pointer;
   transition: color 0.3s ease, background-color 0.3s ease,
     border-color 0.3s ease;
+  position: absolute;
+  top: 0.1rem; /* Adjusted top margin */
+  right: 0.75rem; /* Increased right margin */
 }
 
 .soundButton:hover {
   background-color: rgba(183, 180, 180, 0.616);
 }
+
 .soundButton.active {
   color: white;
   background-color: rgba(248, 185, 75, 0.643);
