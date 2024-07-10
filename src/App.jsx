@@ -14,7 +14,6 @@ import SearchResultsPage from "./pages/SearchResultsPage"; // Import SearchResul
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import BirdForm from "./components/BirdForm";
-import SearchBar from "./components/SearchBar"; // Import SearchBar component
 import "./styles/global.css";
 
 const App = () => {
@@ -26,7 +25,7 @@ const App = () => {
 
   const fetchBirds = async () => {
     try {
-      const response = await fetch("http://localhost:4000/birds");
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/birds`);
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import BirdDetails from "../components/BirdDetails";
-import API_URL from "../helpers/API_URL";
 import styles from "../styles/DetailsPage.module.css"; // Import your CSS module for styling
 
 const DetailsPage = () => {
@@ -11,7 +10,9 @@ const DetailsPage = () => {
   useEffect(() => {
     const fetchBird = async () => {
       try {
-        const response = await fetch(`${API_URL}/birds/${id}`);
+        const response = await fetch(
+          `${process.env.REACT_APP_API_URL}/birds/${id}`
+        );
         const data = await response.json();
         setBird(data);
       } catch (error) {

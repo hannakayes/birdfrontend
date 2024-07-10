@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import BirdCard from "../components/BirdCard";
-import API_URL from "../helpers/API_URL";
 import styles from "../styles/MainPage.module.css";
 import BirdForm from "../components/BirdForm";
 
@@ -14,7 +13,7 @@ const MainPage = () => {
 
   const fetchBirds = async () => {
     try {
-      const response = await fetch(`${API_URL}/birds`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/birds`);
       const data = await response.json();
 
       const sortedBirds = data.sort((a, b) => {
@@ -46,7 +45,7 @@ const MainPage = () => {
 
   const addNewBird = async (newBird) => {
     try {
-      const response = await fetch(`${API_URL}/birds`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/birds`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -68,9 +67,12 @@ const MainPage = () => {
 
   const handleDeleteBird = async (id) => {
     try {
-      const response = await fetch(`${API_URL}/birds/${id}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/birds/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to delete bird");
