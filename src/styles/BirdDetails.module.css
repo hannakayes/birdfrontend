@@ -19,16 +19,40 @@
 .cardHeader {
   padding: 1rem;
   background-color: rgba(209, 207, 207, 0.35); /* Semi-transparent white */
-  text-align: center;
   border-radius: var(--card-radius); /* Match card radius */
   margin: -1rem -1rem 0 -1rem; /* Adjust margin to remove space between background and outer border */
+  display: flex; /* Use flexbox */
+  align-items: center; /* Center items vertically */
+  justify-content: space-between; /* Space items evenly with space between them */
+  position: relative; /* To position the sound button inside the card header */
 }
 
 .cardTitle {
   margin-top: 0;
   font-size: 2rem;
   color: #333;
-  text-align: center; /* Center align the title */
+}
+
+.soundButton {
+  margin-left: auto; /* Push the button to the right */
+  color: black;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 0.7rem;
+  padding: 0.4rem 0.5rem;
+  width: 4rem;
+  cursor: pointer;
+  transition: color 0.3s ease, background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.soundButton:hover {
+  background-color: rgba(183, 180, 180, 0.616);
+}
+.soundButton.active {
+  color: white;
+  background-color: #f8ba4b;
+  border-color: #f8ba4b;
 }
 
 .cardBody {

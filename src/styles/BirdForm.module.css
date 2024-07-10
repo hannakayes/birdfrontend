@@ -63,10 +63,6 @@ select option {
   font-weight: normal;
 }
 
-textarea:focus {
-  border-color: yellow; /* Change border color on focus */
-}
-
 button {
   background-color: #ffee00;
   color: black;

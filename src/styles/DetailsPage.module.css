@@ -38,10 +38,11 @@
   display: inline-block;
   padding: 0.5rem 1rem;
   border: none;
-  border-radius: 30px; /* Match the border radius of the search bar */
+  border-radius: 0.7rem;
+  padding: 0.4rem 0.8rem;
   background-color: #ffee00;
   color: black;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   text-decoration: none; /* Remove underline */
   cursor: pointer;
   transition: background-color 0.3s ease;
