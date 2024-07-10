@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import styles from "../styles/BirdCard.module.css";
 
@@ -51,19 +50,6 @@ const BirdCard = ({ bird, onDelete }) => {
   );
 };
 
-BirdCard.propTypes = {
-  bird: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    latin_name: PropTypes.string.isRequired,
-    order: PropTypes.string.isRequired,
-    family: PropTypes.string.isRequired,
-    habitat: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    status: PropTypes.string.isRequired,
-    image: PropTypes.string,
-  }).isRequired,
-  onDelete: PropTypes.func.isRequired, // Function to handle deletion
-};
+
 
 export default BirdCard;

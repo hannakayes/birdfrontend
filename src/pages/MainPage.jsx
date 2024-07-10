@@ -88,7 +88,7 @@ const MainPage = () => {
   return (
     <div className={styles.mainPage}>
       {birds.map((bird) => (
-        <BirdCard key={bird.id} bird={bird} onDelete={handleDeleteBird} />
+        <BirdCard key={bird.id.toString()} bird={bird} onDelete={handleDeleteBird} />
       ))}
       {showBirdForm && (
         <BirdForm onClose={handleCloseForm} addBird={addNewBird} />
