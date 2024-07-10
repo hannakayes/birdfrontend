@@ -3,37 +3,10 @@ import BirdCard from "../components/BirdCard";
 import styles from "../styles/MainPage.module.css";
 import BirdForm from "../components/BirdForm";
 
-const MainPage = () => {
-  const [birds, setBirds] = useState([]);
+const MainPage = ({ birds, fetchBirds, favorites, onToggleFavorite }) => {
   const [showBirdForm, setShowBirdForm] = useState(false);
 
-  useEffect(() => {
-    fetchBirds();
-  }, []);
-
-  const fetchBirds = async () => {
-    try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/birds`);
-      const data = await response.json();
-
-      const sortedBirds = data.sort((a, b) => {
-        // First, sort by order
-        if (a.order < b.order) return -1;
-        if (a.order > b.order) return 1;
-
-        // If orders are equal, then sort by family
-        if (a.family < b.family) return -1;
-        if (a.family > b.family) return 1;
-
-        // If orders and families are equal, then sort by name
-        return a.name.localeCompare(b.name);
-      });
-
-      setBirds(sortedBirds);
-    } catch (error) {
-      console.error("Error fetching birds:", error);
-    }
-  };
+  
 
   const handleAddBird = () => {
     setShowBirdForm(true);
@@ -57,9 +30,9 @@ const MainPage = () => {
         throw new Error("Failed to add bird");
       }
 
-      // Fetch updated list of birds after adding a new bird
+      
       fetchBirds();
-      setShowBirdForm(false); // Close the form after successful addition
+      setShowBirdForm(false); 
     } catch (error) {
       console.error("Error adding bird:", error);
     }
@@ -79,7 +52,7 @@ const MainPage = () => {
       }
 
       const updatedBirds = birds.filter((bird) => bird.id !== id);
-      setBirds(updatedBirds);
+      fetchBirds(); 
     } catch (error) {
       console.error("Error deleting bird:", error);
     }
@@ -88,11 +61,15 @@ const MainPage = () => {
   return (
     <div className={styles.mainPage}>
       {birds.map((bird) => (
-        <BirdCard key={bird.id.toString()} bird={bird} onDelete={handleDeleteBird} />
+        <BirdCard
+          key={bird.id.toString()}
+          bird={bird}
+          onDelete={handleDeleteBird}
+          onToggleFavorite={onToggleFavorite}
+          isFavorite={favorites.includes(bird.id)}
+        />
       ))}
-      {showBirdForm && (
-        <BirdForm onClose={handleCloseForm} addBird={addNewBird} />
-      )}
+      {showBirdForm && <BirdForm onClose={handleCloseForm} addBird={addNewBird} />}
       <button className={styles.addBirdButton} onClick={handleAddBird}>
         Add Bird
       </button>

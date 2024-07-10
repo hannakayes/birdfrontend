@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../styles/BirdCard.module.css";
 
-const BirdCard = ({ bird, onDelete }) => {
+const BirdCard = ({ bird, onDelete, onToggleFavorite, isFavorite }) => {
   const imageUrl = bird.image || "";
+  const [favorite, setFavorite] = useState(isFavorite);
+
+  const handleFavoriteClick = () => {
+    setFavorite(!favorite);
+    onToggleFavorite(bird.id);
+  };
 
   const handleDeleteClick = () => {
     onDelete(bird.id);
@@ -16,6 +22,12 @@ const BirdCard = ({ bird, onDelete }) => {
           <img src={imageUrl} alt={bird.name} className={styles.cardImage} />
         )}
         <h2 className={styles.cardTitle}>{bird.name}</h2>
+        <button
+          onClick={handleFavoriteClick}
+          className={`${styles.favoriteButton} ${favorite ? styles.favoriteActive : ""}`}
+        >
+          &#x2665; {/* Heart symbol */}
+        </button>
       </div>
       <div className={styles.cardBody}>
         <p className={styles.cardText}>{bird.description}</p>
@@ -49,7 +61,5 @@ const BirdCard = ({ bird, onDelete }) => {
     </div>
   );
 };
-
-
 
 export default BirdCard;
