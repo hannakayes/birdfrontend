@@ -11,7 +11,7 @@ const DetailsPage = () => {
     const fetchBird = async () => {
       try {
         const response = await fetch(
-          `${process.env.REACT_APP_API_URL}/birds/${id}`
+          `${import.meta.env.VITE_API_URL}/birds/${id}`
         );
         const data = await response.json();
         setBird(data);
