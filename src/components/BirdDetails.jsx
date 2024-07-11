@@ -25,7 +25,7 @@ const BirdDetails = ({ bird }) => {
     setIsPlaying(false);
   };
   useEffect(() => {
-    // Cleanup the audio when the component unmounts or when bird changes
+    
     return () => {
       stopSound();
     };

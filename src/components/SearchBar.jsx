@@ -5,9 +5,24 @@ import { useNavigate } from "react-router-dom";
 const SearchBar = ({ birds, fetchBirds, setSearchResults }) => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
 
   const handleInputChange = (event) => {
-    setSearchTerm(event.target.value);
+    const term = event.target.value;
+    setSearchTerm(term);
+
+    if (!term) {
+      setSuggestions([]); 
+      return;
+    }
+
+    
+    const filteredSuggestions = birds.filter(
+      (bird) =>
+        bird.name.toLowerCase().includes(term.toLowerCase()) ||
+        bird.latin_name.toLowerCase().includes(term.toLowerCase())
+    );
+    setSuggestions(filteredSuggestions.slice(0, 5)); 
   };
 
   const handleSearch = () => {
@@ -22,15 +37,14 @@ const SearchBar = ({ birds, fetchBirds, setSearchResults }) => {
     const filteredResults = birds.filter(
       (bird) =>
         bird.name.toLowerCase().includes(term) ||
-        bird.latin_name.toLowerCase().includes(term) 
-        
+        bird.latin_name.toLowerCase().includes(term)
     );
 
     setSearchResults(filteredResults);
 
     const exactMatch = filteredResults.find(
-      (bird) => bird.name.toLowerCase() === term ||
-      bird.latin_name.toLowerCase() === term
+      (bird) =>
+        bird.name.toLowerCase() === term || bird.latin_name.toLowerCase() === term
     );
 
     if (exactMatch) {
@@ -42,6 +56,12 @@ const SearchBar = ({ birds, fetchBirds, setSearchResults }) => {
     }
   };
 
+  const handleSuggestionClick = (birdId) => {
+    navigate(`/details/${birdId}`);
+    setSearchTerm(""); 
+    setSuggestions([]); 
+  };
+
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       handleSearch();
@@ -49,7 +69,7 @@ const SearchBar = ({ birds, fetchBirds, setSearchResults }) => {
   };
 
   useEffect(() => {
-    fetchBirds(); 
+    fetchBirds();
   }, [fetchBirds]);
 
   return (
@@ -66,6 +86,19 @@ const SearchBar = ({ birds, fetchBirds, setSearchResults }) => {
       <button onClick={handleSearch} className={styles.searchButton}>
         Search
       </button>
+      {suggestions.length > 0 && searchTerm && (
+        <ul className={styles.suggestions}>
+          {suggestions.map((bird) => (
+            <li
+              key={bird.id}
+              className={styles.suggestion}
+              onClick={() => handleSuggestionClick(bird.id)}
+            >
+              {bird.name} ({bird.latin_name})
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

@@ -21,7 +21,7 @@ const BirdForm = ({ onClose, addBird }) => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    addBird(formData); // Send new bird data to the MainPage component
+    addBird(formData); 
   };
   return (
     <div className={styles.modal}>

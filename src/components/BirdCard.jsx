@@ -28,7 +28,7 @@ const BirdCard = ({ bird, onDelete, onToggleFavorite, isFavorite }) => {
         </button>
       </div>
       <h2 className={styles.cardTitle}>{bird.name}</h2>{" "}
-      {/* Move the headline here */}
+      
       <div className={styles.cardBody}>
         <p className={styles.cardText}>{bird.description}</p>
         <div className={styles.cardDetails}>
