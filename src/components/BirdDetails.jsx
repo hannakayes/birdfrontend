@@ -1,12 +1,45 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "../styles/BirdDetails.module.css";
-
 const BirdDetails = ({ bird }) => {
+  const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const toggleSound = () => {
+    if (isPlaying) {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
+    } else {
+      const audio = new Audio(bird.sound);
+      audioRef.current = audio;
+      audio.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
+  const stopSound = () => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+      audioRef.current = null;
+    }
+    setIsPlaying(false);
+  };
+  useEffect(() => {
+    // Cleanup the audio when the component unmounts or when bird changes
+    return () => {
+      stopSound();
+    };
+  }, [bird]);
   return (
     <div className={styles.card}>
       <div className={styles.cardHeader}>
         <h2 className={styles.cardTitle}>{bird.name}</h2>
+        <button
+          className={`${styles.soundButton} ${isPlaying ? styles.active : ""}`}
+          onClick={toggleSound}
+        >
+          {isPlaying ? "Stop" : "Hear"}
+        </button>
       </div>
       <div className={styles.cardBody}>
         <div className={styles.cardDetails}>
@@ -34,18 +67,4 @@ const BirdDetails = ({ bird }) => {
     </div>
   );
 };
-
-BirdDetails.propTypes = {
-  bird: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    latin_name: PropTypes.string.isRequired,
-    order: PropTypes.string.isRequired,
-    family: PropTypes.string.isRequired,
-    habitat: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    status: PropTypes.string.isRequired,
-    image: PropTypes.string, // URL for the bird image (to be implemented later)
-  }).isRequired,
-};
-
 export default BirdDetails;
