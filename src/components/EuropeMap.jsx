@@ -5,11 +5,6 @@ import styles from "../styles/Map.module.css";
 import world110m from "../data/countries-110m.json";
 
 const EuropeMap = () => {
-  const handleRegionClick = (geo) => {
-    console.log("Region clicked:", geo.properties.name);
-    
-  };
-
   return (
     <div className={styles.mapContainer}>
       <ComposableMap
@@ -31,13 +26,12 @@ const EuropeMap = () => {
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
-                  onClick={() => handleRegionClick(geo)}
                   style={{
                     default: {
                       fill: "#F8BA4B",
                       outline: "none",
-                      stroke: "#FFFFFF", // White border color
-                      strokeWidth: 0.75, // Border width
+                      stroke: "#FFFFFF",
+                      strokeWidth: 0.75,
                     },
                     hover: {
                       fill: "#ffee00",

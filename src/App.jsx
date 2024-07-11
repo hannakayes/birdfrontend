@@ -23,8 +23,7 @@ const App = () => {
 
   useEffect(() => {
     fetchBirds();
-   
-    const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
     setFavorites(storedFavorites);
   }, []);
 
@@ -36,11 +35,8 @@ const App = () => {
       const sortedBirds = data.sort((a, b) => {
         if (a.order < b.order) return -1;
         if (a.order > b.order) return 1;
-
         if (a.family < b.family) return -1;
         if (a.family > b.family) return 1;
-
-        // If orders and families are equal, then sort by name
         return a.name.localeCompare(b.name);
       });
 
@@ -55,9 +51,7 @@ const App = () => {
       ? favorites.filter((favId) => favId !== id)
       : [...favorites, id];
     setFavorites(updatedFavorites);
-
- 
-    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
   };
 
   const handleAddBird = (birdData) => {
@@ -72,9 +66,7 @@ const App = () => {
     try {
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/birds/${id}`,
-        {
-          method: "DELETE",
-        }
+        { method: "DELETE" }
       );
 
       if (!response.ok) {
@@ -84,11 +76,10 @@ const App = () => {
       const updatedBirds = birds.filter((bird) => bird.id !== id);
       setBirds(updatedBirds);
 
-      
       if (favorites.includes(id)) {
         const updatedFavorites = favorites.filter((favId) => favId !== id);
         setFavorites(updatedFavorites);
-        localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+        localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
       }
     } catch (error) {
       console.error("Error deleting bird:", error);
@@ -123,13 +114,27 @@ const App = () => {
                   />
                 }
               />
-              <Route path="/add-bird" element={<BirdForm onClose={handleClose} addBird={handleAddBird} />} />
-              <Route path="/details/:id" element={<DetailsPage birds={birds} />} />
+              <Route
+                path="/add-bird"
+                element={
+                  <BirdForm onClose={handleClose} addBird={handleAddBird} />
+                }
+              />
+              <Route
+                path="/details/:id"
+                element={<DetailsPage birds={birds} />}
+              />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<ContactDetails />} />
               <Route path="/map" element={<Map />} />
-              <Route path="/country-birds/:countryName" element={<CountryBirds />} />
-              <Route path="/search-results" element={<SearchResultsPage birds={birds} />} />
+              <Route
+                path="/country-birds/:countryName"
+                element={<CountryBirds birds={birds} />}
+              />
+              <Route
+                path="/search-results"
+                element={<SearchResultsPage birds={birds} />}
+              />
               <Route
                 path="/favorite-birds"
                 element={
