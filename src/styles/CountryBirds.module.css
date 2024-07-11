@@ -1,14 +1,36 @@
 /* CountryBirds.module.css */
 
 .countryBirdsPage {
-  padding: 2rem;
-  margin: 3rem 3rem; /* Larger margin at the top, left, and right */
+  padding: 2rem 5rem;
+  margin: 3rem 0; /* Larger margin at the top, left, and right */
   text-align: left; /* Adjust text alignment if necessary */
+  position: relative; /* Ensure relative positioning for absolute elements */
+  background-image: linear-gradient(
+    to bottom right,
+    #66666645,
+    rgba(255, 204, 0, 0.551)
+  ); /* Gradient background */
+}
+
+.countryBirdsPage::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place the gradient behind other content */
+}
+
+.countryBirdsContent {
+  position: relative; /* Ensure the content is positioned relative */
+  z-index: 1; /* Ensure content stays above background */
 }
 
 .countryBirdsPage h2 {
   font-size: 2rem; /* Adjust heading size if necessary */
   color: #333; /* Example color */
+  margin-bottom: 2rem; /* Adjust margin */
 }
 
 .countryBirdsPage p {
@@ -16,12 +38,28 @@
   margin-bottom: 1rem; /* Adjust margin bottom for paragraphs */
 }
 
-.backButton {
-  margin-top: 1rem; /* Space from paragraph */
-  text-align: center; /* Center-align button */
+.countryBirdsPage ul {
+  list-style-type: none; /* Remove bullet points */
+  padding-left: 0; /* Remove default padding */
 }
 
-.backLink {
+.countryBirdsPage li {
+  margin-bottom: 0.5rem; /* Adjust margin between list items */
+  line-height: 1.4; /* Adjust line height between list items */
+}
+
+.countryBirdsPage a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s ease; /* Smooth transition for text color */
+}
+
+.countryBirdsPage a:hover {
+  background-color: #ffee00;
+}
+
+.countryBirdsPage .backLink {
   display: inline-block;
   padding: 0.5rem 1rem;
   border: none;
@@ -30,10 +68,31 @@
   color: black;
   font-size: 1rem;
   text-decoration: none; /* Remove underline */
+  font-weight: normal;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transition for background and text color */
 }
 
-.backLink:hover {
+.countryBirdsPage .backLink:hover {
   background-color: #f8ba4b;
+  color: #000000; /* Change text color to black on hover */
+}
+
+.countryBirdsPage .otherLinks a {
+  font-weight: bold;
+}
+
+.countryBirdsPage .otherLinks a:hover {
+  color: #000000; /* Change text color to black on hover */
+  background-color: #ffee00; /* Yellow background on hover */
+}
+
+.smallText {
+  font-size: 0.8rem; /* Smaller font size for the last paragraph */
+  color: #000000; /* Adjust color if necessary */
+}
+
+.backButton {
+  margin-top: 1rem; /* Space from paragraph */
+  text-align: center; /* Center-align button */
 }

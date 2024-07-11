@@ -1,21 +1,29 @@
-/* src/styles/FavoriteBirds.module.css */
+/* FavoriteBirds.module.css */
+
 .favoriteBirds {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-  }
-  
-  .favoriteBirds h2 {
-    margin-bottom: 16px;
-  }
-  
-  .favoriteBirds .birdCard {
-    margin-bottom: 12px;
-  }
-  .birdsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Adjust gap as per your design */
-    justify-content: center; /* Center the items horizontally */
-    
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Adjust gap between elements */
+  padding-top: 6rem; /* Similar to MainPage padding */
+  padding-bottom: 9rem; /* Similar to MainPage padding */
+  background-image: linear-gradient(
+    to bottom right,
+    #66666645,
+    rgba(255, 204, 0, 0.551)
+  ); /* Gradient background */
+}
+
+.favoriteBirdsTitle {
+  font-size: 5rem; /* Larger font size */
+  color: #333; /* Heading color */
+  margin-bottom: 0rem; /* Adjust margin */
+}
+
+.favoriteBirds .birdsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Adjust gap between cards */
+  width: 100%; /* Ensure full width */
+}

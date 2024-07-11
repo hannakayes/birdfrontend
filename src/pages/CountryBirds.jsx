@@ -22,7 +22,7 @@ const CountryBirds = ({ birds }) => {
         <ul>
           {countryBirds.map((bird) => (
             <li key={bird.id}>
-              <Link to={`/details/${bird.id}`}>
+              <Link to={`/details/${bird.id}`} className={styles.otherLinks}>
                 {bird.name} (
                 <span className={styles.italic}>{bird.latin_name}</span>)
               </Link>
