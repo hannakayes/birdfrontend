@@ -163,19 +163,39 @@ const MainPage = ({ birds, fetchBirds, favorites, onToggleFavorite }) => {
                 <>
                   <option value="ACCIPITRIFORMES">ACCIPITRIFORMES</option>
                   <option value="ANSERIFORMES">ANSERIFORMES</option>
+                  <option value="APODIFORMES">APODIFORMES</option>
                   <option value="BUCEROTIFORMES">BUCEROTIFORMES</option>
                   <option value="CAPRIMULGIFORMES">CAPRIMULGIFORMES</option>
                   <option value="CHARADRIIFORMES">CHARADRIIFORMES</option>
                   <option value="CICONIIFORMES">CICONIIFORMES</option>
-                  <option value="COLUMBIFORMES">COLUMBIFORMES</option>
+                  <option value="COLIIFORMES">COLIIFORMES</option>
                   <option value="CORACIIFORMES">CORACIIFORMES</option>
                   <option value="CUCULIFORMES">CUCULIFORMES</option>
+                  <option value="EURYPYGIFORMES">EURYPYGIFORMES</option>
                   <option value="FALCONIFORMES">FALCONIFORMES</option>
+                  <option value="GALLIFORMES">GALLIFORMES</option>
                   <option value="GRUIFORMES">GRUIFORMES</option>
+                  <option value="LEPTOSOMIFORMES">LEPTOSOMIFORMES</option>
+                  <option value="MESITORNITHIFORMES">MESITORNITHIFORMES</option>
+                  <option value="MUSOPHAGIFORMES">MUSOPHAGIFORMES</option>
+                  <option value="OPHIOTHOMIFORMES">OPHIOTHOMIFORMES</option>
+                  <option value="OPITHOCOMIFORMES">OPITHOCOMIFORMES</option>
+                  <option value="PASSERIFORMES">PASSERIFORMES</option>
                   <option value="PELECANIFORMES">PELECANIFORMES</option>
+                  <option value="PHAEOTHONTIFORMES">PHAEOTHONTIFORMES</option>
+                  <option value="PHOENICOPTERIFORMES">
+                    PHOENICOPTERIFORMES
+                  </option>
                   <option value="PICIFORMES">PICIFORMES</option>
-                  <option value="PODICIPEDIFORMES">PODICIPEDIFORMES</option>
                   <option value="PROCELLARIIFORMES">PROCELLARIIFORMES</option>
+                  <option value="PTEROCULIFORMES">PTEROCULIFORMES</option>
+                  <option value="PTEROCULIFORMES">PTEROCULIFORMES</option>
+                  <option value="RHEIFORMES">RHEIFORMES</option>
+                  <option value="SULIFORMES">SULIFORMES</option>
+                  <option value="STRUTHIONIFORMES">STRUTHIONIFORMES</option>
+                  <option value="STRIGIFORMES">STRIGIFORMES</option>
+                  <option value="TINAMIFORMES">TINAMIFORMES</option>
+                  <option value="TROGONIFORMES">TROGONIFORMES</option>
                 </>
               )}
             </select>
