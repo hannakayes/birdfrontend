@@ -12,19 +12,20 @@ const SearchBar = ({ birds, fetchBirds, setSearchResults }) => {
     setSearchTerm(term);
 
     if (!term) {
-      setSuggestions([]); 
+      setSuggestions([]);
       return;
     }
 
-    
     const filteredSuggestions = birds.filter(
       (bird) =>
         bird.name.toLowerCase().includes(term.toLowerCase()) ||
         bird.latin_name.toLowerCase().includes(term.toLowerCase())
     );
-    setSuggestions(filteredSuggestions.slice(0, 5)); 
+    setSuggestions(filteredSuggestions.slice(0, 5));
   };
 
+  // Commenting out the search button logic
+  /*
   const handleSearch = () => {
     const term = searchTerm.trim().toLowerCase();
 
@@ -44,7 +45,8 @@ const SearchBar = ({ birds, fetchBirds, setSearchResults }) => {
 
     const exactMatch = filteredResults.find(
       (bird) =>
-        bird.name.toLowerCase() === term || bird.latin_name.toLowerCase() === term
+        bird.name.toLowerCase() === term ||
+        bird.latin_name.toLowerCase() === term
     );
 
     if (exactMatch) {
@@ -55,16 +57,18 @@ const SearchBar = ({ birds, fetchBirds, setSearchResults }) => {
       navigate("/error");
     }
   };
+  */
 
   const handleSuggestionClick = (birdId) => {
     navigate(`/details/${birdId}`);
-    setSearchTerm(""); 
-    setSuggestions([]); 
+    setSearchTerm("");
+    setSuggestions([]);
   };
 
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
-      handleSearch();
+      // Uncomment to handle search on Enter key press
+      // handleSearch();
     }
   };
 
@@ -77,15 +81,18 @@ const SearchBar = ({ birds, fetchBirds, setSearchResults }) => {
       <input
         type="text"
         id="searchInput"
-        placeholder="Search birds by name, species, or habitat..."
+        placeholder="Search birds by name or species!"
         className={styles.searchBar}
         value={searchTerm}
         onChange={handleInputChange}
         onKeyPress={handleKeyPress}
       />
+      {/* Commenting out the search button */}
+      {/* 
       <button onClick={handleSearch} className={styles.searchButton}>
         Search
       </button>
+      */}
       {suggestions.length > 0 && searchTerm && (
         <ul className={styles.suggestions}>
           {suggestions.map((bird) => (

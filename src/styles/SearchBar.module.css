@@ -1,20 +1,24 @@
+/* SearchBar.module.css */
+
 .searchContainer {
   display: flex;
-  flex-direction: column; /* Arrange children in a column */
-  align-items: center; /* Center-align children */
+  justify-content: center; /* Center-align horizontally */
+  align-items: center; /* Center-align vertically */
+  width: 100%; /* Adjust as needed */
   margin: 1rem 0;
 }
 
 .searchBar {
-  width: 70%;
+  flex: 1; /* Take up remaining space */
   text-align: center;
   padding: 1rem;
-  font-size: 1.2rem;
-  border: 2px solid #ccc;
-  border-radius: 40px;
-  margin-top: 1rem;
+  font-size: 1.1rem;
+  border: 0.2rem solid #ccc; /* Convert border width to rem */
+  border-radius: 4rem; /* Convert border-radius to rem */
+  margin-right: 1rem; /* Add some spacing between searchBar and searchButton */
   outline: none;
   transition: border-color 0.3s ease;
+  max-width: 25rem; /* Reduce max-width of search bar */
 }
 
 .searchBar:focus {
@@ -22,16 +26,15 @@
 }
 
 .searchButton {
-  width: 15%; /* Match the width of the search bar */
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   border: none;
-  border-radius: 40px; /* Match the border radius of the search bar */
+  border-radius: 4rem; /* Convert border-radius to rem */
   background-color: #ffee00;
   color: black;
-  font-size: 1rem;
+  font-size: 1.1rem;
   cursor: pointer;
-  margin-top: 0.5rem; /* Space between input and button */
   transition: background-color 0.3s ease;
+  min-width: 10rem; /* Convert min-width to rem */
 }
 
 .searchButton:hover {
@@ -41,9 +44,37 @@
 ul {
   list-style-type: none;
   padding: 0;
-  margin-top: 1rem; /* Space between button and results */
+  margin: 0; /* Remove default margins */
 }
 
 li {
   margin: 0.5rem 0;
+}
+
+.suggestions {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  min-width: 20rem; /* Adjust width of suggestions */
+  position: absolute;
+  top: calc(100% + 0.5rem); /* Convert top margin to rem */
+  left: 50%; /* Center suggestions horizontally */
+  transform: translateX(-50%); /* Center suggestions horizontally */
+  z-index: 1; /* Ensure it's above other content */
+  background-color: #ffffff; /* Background color for suggestions */
+  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1); /* Convert box-shadow to rem */
+  border: 2px solid #ffee00; /* Convert border width to rem */
+  border-top: none; /* Remove top border to align with search bar */
+  margin-top: 0.5rem; /* Adjust the gap between search bar and suggestions */
+}
+
+.suggestion {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: black;
+}
+
+.suggestion:hover {
+  background-color: #f0f0f0;
 }

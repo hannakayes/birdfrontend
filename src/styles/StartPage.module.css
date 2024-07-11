@@ -29,5 +29,5 @@
 .logo {
   height: 130px;
   width: auto;
-  margin-bottom: 20px; /* Space between logo and search bar */
+  margin-bottom: 1rem; /* Space between logo and search bar */
 }

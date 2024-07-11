@@ -1,7 +1,7 @@
 .footer {
   background-color: white;
   text-align: center;
-  padding: 0; /* Adjust padding to reduce height */
+  padding: 0.5rem; /* Adjust padding to reduce height */
   position: fixed;
   width: 100%;
   bottom: 0;
