@@ -6,6 +6,7 @@
   justify-content: center;
   gap: 1rem;
   padding-top: 6rem; /* Add padding-top for spacing */
+  padding-bottom: 9rem;
   background-image: linear-gradient(
     to bottom right,
     #66666645,
