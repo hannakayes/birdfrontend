@@ -5,120 +5,116 @@
   --card-back: hsl(205, 100%, 25%);
   --card-glow: hsl(175, 100%, 90%);
 }
-
 .card {
   background-color: #fff;
   border: 1px solid var(--card-edge);
   border-radius: var(--card-radius);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  width: 24rem; /* Increased card width */
-  margin: 0.5rem; /* Gap between cards */
-  transition: transform 0.2s; /* Smooth hover effect */
+  width: 24rem;
+  margin: 0.5rem;
+  transition: transform 0.2s;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 20rem; /* Reduced card minimum height */
+  min-height: 20rem;
 }
-
 .card:hover {
-  transform: scale(1.02); /* Slightly enlarge on hover */
+  transform: scale(1.02);
 }
-
 .cardHeader {
-  padding: 0.5rem;
-  background-color: #f0f0f0;
+  padding: 1rem;
+  background-color: #F0F0F0;
+  text-align: center;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex: 0 0 auto;
+  min-height: 12rem;
+}
+.cardTitle {
+  margin: 0.5rem 0 0.25rem; /* Reduced margin between header and headline */
+  font-size: 1.25rem;
+  color: #333;
+  font-weight: normal;
   text-align: center;
 }
-
-.cardImage {
-  position: relative; /* Ensure relative positioning for absolute shadow */
-  width: 100%; /* Image fills its container */
-  height: 12rem; /* Reduced image height */
-  object-fit: cover;
-  margin: 0; /* Remove margin */
-  border-radius: var(--card-radius);
-  border-top-right-radius: var(--card-radius);
-  overflow: hidden; /* Ensure overflow is hidden to clip shadow */
-}
-
-.cardImage img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top; /* Ensure image starts at the top */
-}
-
-.cardImage::before {
-  content: ""; /* Create pseudo-element for shadow */
+.favoriteButton {
+  background: none;
+  border: none;
+  color: #000000; /* Initial yellow color */
+  font-size: 1.5rem;
+  cursor: pointer;
   position: absolute;
-  top: 5%;
-  left: 5%;
-  right: 5%;
-  bottom: 5%;
-  background: rgba(0, 0, 0, 0.4); /* Semi-transparent black */
-  z-index: 1; /* Ensure it's above the image */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Inner shadow */
-  border-radius: var(--card-radius); /* Inherit card radius */
-}
-
-.cardTitle {
-  margin-top: 0.5rem;
-  font-size: 1.25rem; /* Reduced font size */
-  color: #333;
-  font-weight: normal; /* Title text not bold */
-  text-align: center; /* Center align the title */
-}
-
-.cardBody {
+  top: 0;
+  right: 0.8rem;
   padding: 0.5rem;
-  flex: 1; /* Allow the card body to grow and fill space */
+  border-radius: 50%;
+  background-color: #F8BA4B; /* Initial yellow background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for color change */
 }
-
+.favoriteButton:hover {
+  color: #890F42; /* Light pink color on hover */
+  background-color: rgba(
+    255,
+    144,
+    161,
+    0.902
+  ); /* Light pink background on hover */
+}
+.favoriteActive {
+  color: #FD0B58;
+  background-color: rgba(255, 144, 161, 0.902);
+}
+.cardBody {
+  padding: 1rem;
+  flex: 1;
+}
 .cardText {
-  font-size: 0.875rem; /* Reduced font size */
+  margin-top: 0rem; /* Reduced margin between english name and description */
+  margin-bottom: 0.5rem; /* Further reduced margin between headline and description */
+  font-size: 0.875rem;
   color: #666;
-  line-height: 1.2; /* Adjusted line height */
+  line-height: 1.2;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 4; /* Number of lines to show */
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
-  max-height: calc(
-    1.2 * 4
-  ); /* Fallback for browsers that don't support -webkit-line-clamp */
+  max-height: calc(1.2 * 4);
   line-clamp: 4;
 }
-
 .cardDetails {
   margin-top: 0.5rem;
 }
-
 .detail {
   margin-bottom: 0.25rem;
-  font-size: 0.875rem; /* Reduced font size */
-  font-weight: normal; /* Details text not bold */
+  font-size: 0.875rem;
+  font-weight: normal;
 }
-
 .detail strong {
   font-weight: bold;
   margin-right: 0.25rem;
 }
-
 .detail span {
   color: #888;
   font-style: italic;
 }
-
 .cardButtons {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
 }
-
 .deleteButton {
-  background-color: #f0f0f0;
+  background-color: #F0F0F0;
   width: 5rem;
   color: #000000;
   border: none;
@@ -127,20 +123,23 @@
   border-radius: 5px;
   font-size: 0.875rem;
 }
-
 .deleteButton:hover {
-  background-color: #dddbdb;
+  background-color: #DDDBDB;
 }
-
 .cardLink {
   text-decoration: none;
   color: #888;
   font-style: italic;
   font-size: 0.875rem;
 }
-
 .cardLink:hover {
   text-decoration: none;
   color: #555;
   font-size: 0.895rem;
 }
+
+
+
+
+
+

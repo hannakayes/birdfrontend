@@ -7,7 +7,7 @@ import world110m from "../data/countries-110m.json";
 const EuropeMap = () => {
   const handleRegionClick = (geo) => {
     console.log("Region clicked:", geo.properties.name);
-    // Add logic here for navigation or other actions based on region click
+    
   };
 
   return (

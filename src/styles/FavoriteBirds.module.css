@@ -1,0 +1,21 @@
+/* src/styles/FavoriteBirds.module.css */
+.favoriteBirds {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  .favoriteBirds h2 {
+    margin-bottom: 16px;
+  }
+  
+  .favoriteBirds .birdCard {
+    margin-bottom: 12px;
+  }
+  .birdsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust gap as per your design */
+    justify-content: center; /* Center the items horizontally */
+    
+  }

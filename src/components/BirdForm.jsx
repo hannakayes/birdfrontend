@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styles from "../styles/BirdForm.module.css";
-
 const BirdForm = ({ onClose, addBird }) => {
   const [formData, setFormData] = useState({
     name: "",
@@ -13,7 +12,6 @@ const BirdForm = ({ onClose, addBird }) => {
     order: "",
     status: "",
   });
-
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({
@@ -21,12 +19,10 @@ const BirdForm = ({ onClose, addBird }) => {
       [name]: value,
     });
   };
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    addBird(formData); // Send new bird data to the MainPage component
+    addBird(formData); 
   };
-
   return (
     <div className={styles.modal}>
       <div className={styles.modalContent}>
@@ -84,55 +80,45 @@ const BirdForm = ({ onClose, addBird }) => {
               <option value="" disabled>
                 Select Family
               </option>
-              {/* Replace with actual options */}
               <option value="Accipitridae">Accipitridae</option>
+              <option value="Alcedinidae">Alcedinidae</option>
               <option value="Anatidae">Anatidae</option>
               <option value="Apodidae">Apodidae</option>
+              <option value="Ardeidae">Ardeidae</option>
               <option value="Caprimulgidae">Caprimulgidae</option>
-              <option value="Scolopacidae">Scolopacidae</option>
-              <option value="Muscicapidae">Muscicapidae</option>
-              <option value="Troglodytidae">Troglodytidae</option>
-              <option value="Phasianidae">Phasianidae</option>
-              <option value="Fringillidae">Fringillidae</option>
-              <option value="Turdidae">Turdidae</option>
-              <option value="Paridae">Paridae</option>
-              <option value="Corvidae">Corvidae</option>
-              <option value="Columbidae">Columbidae</option>
-              <option value="Sittidae">Sittidae</option>
-              <option value="Phylloscopidae">Phylloscopidae</option>
-              <option value="Sylviidae">Sylviidae</option>
               <option value="Certhiidae">Certhiidae</option>
-              <option value="Alcedinidae">Alcedinidae</option>
-              <option value="Picidae">Picidae</option>
-              <option value="Upupidae">Upupidae</option>
-              <option value="Oriolidae">Oriolidae</option>
-              <option value="Sturnidae">Sturnidae</option>
-              <option value="Rallidae">Rallidae</option>
               <option value="Charadriidae">Charadriidae</option>
+              <option value="Ciconiidae">Ciconiidae</option>
+              <option value="Columbidae">Columbidae</option>
+              <option value="Corvidae">Corvidae</option>
+              <option value="Cuculidae">Cuculidae</option>
+              <option value="Falconidae">Falconidae</option>
+              <option value="Fringillidae">Fringillidae</option>
               <option value="Haematopodidae">Haematopodidae</option>
               <option value="Hirundinidae">Hirundinidae</option>
-              <option value="Passeridae">Passeridae</option>
-              <option value="Acrocephalidae">Acrocephalidae</option>
-              <option value="Emberizidae">Emberizidae</option>
-              <option value="Falconidae">Falconidae</option>
-              <option value="Motacillidae">Motacillidae</option>
-              <option value="Panuridae">Panuridae</option>
+              <option value="Laniidae">Laniidae</option>
               <option value="Locustellidae">Locustellidae</option>
+              <option value="Meropidae">Meropidae</option>
+              <option value="Motacillidae">Motacillidae</option>
+              <option value="Muscicapidae">Muscicapidae</option>
+              <option value="Oriolidae">Oriolidae</option>
+              <option value="Panuridae">Panuridae</option>
+              <option value="Paridae">Paridae</option>
+              <option value="Phasianidae">Phasianidae</option>
+              <option value="Phylloscopidae">Phylloscopidae</option>
+              <option value="Picidae">Picidae</option>
+              <option value="Podicipedidae">Podicipedidae</option>
               <option value="Prunellidae">Prunellidae</option>
               <option value="Regulidae">Regulidae</option>
-              <option value="Aegithalidae">Aegithalidae</option>
-              <option value="Laniidae">Laniidae</option>
-              <option value="Motacillidae">Motacillidae</option>
-              <option value="Anatidae">Anatidae</option>
-              <option value="Ardeidae">Ardeidae</option>
-              <option value="Podicipedidae">Podicipedidae</option>
-              <option value="Ciconiidae">Ciconiidae</option>
-              <option value="Procellariidae">Procellariidae</option>
-              <option value="Meropidae">Meropidae</option>
               <option value="Remizidae">Remizidae</option>
-              <option value="Cuculidae">Cuculidae</option>
+              <option value="Scolopacidae">Scolopacidae</option>
+              <option value="Sittidae">Sittidae</option>
+              <option value="Sturnidae">Sturnidae</option>
+              <option value="Sylviidae">Sylviidae</option>
+              <option value="Troglodytidae">Troglodytidae</option>
+              <option value="Turdidae">Turdidae</option>
+              <option value="Upupidae">Upupidae</option>
             </select>
-
             <select
               name="order"
               value={formData.order}
@@ -142,29 +128,22 @@ const BirdForm = ({ onClose, addBird }) => {
               <option value="" disabled>
                 Select Order
               </option>
-              {/* Replace with actual options */}
+              <option value="ACCIPITRIFORMES">ACCIPITRIFORMES</option>
+              <option value="ANSERIFORMES">ANSERIFORMES</option>
+              <option value="BUCEROTIFORMES">BUCEROTIFORMES</option>
+              <option value="CAPRIMULGIFORMES">CAPRIMULGIFORMES</option>
+              <option value="CHARADRIIFORMES">CHARADRIIFORMES</option>
+              <option value="CICONIIFORMES">CICONIIFORMES</option>
+              <option value="COLUMBIFORMES">COLUMBIFORMES</option>
+              <option value="CORACIIFORMES">CORACIIFORMES</option>
+              <option value="CUCULIFORMES">CUCULIFORMES</option>
+              <option value="FALCONIFORMES">FALCONIFORMES</option>
+              <option value="GRUIFORMES">GRUIFORMES</option>
               <option value="PELECANIFORMES">PELECANIFORMES</option>
               <option value="PICIFORMES">PICIFORMES</option>
               <option value="PODICIPEDIFORMES">PODICIPEDIFORMES</option>
-              <option value="ACCIPITRIFORMES">ACCIPITRIFORMES</option>
-              <option value="COLUMBIFORMES">COLUMBIFORMES</option>
-              <option value="GALLIFORMES">GALLIFORMES</option>
-              <option value="PASSERIFORMES">PASSERIFORMES</option>
-              <option value="CORACIIFORMES">CORACIIFORMES</option>
-              <option value="BUCEROTIFORMES">BUCEROTIFORMES</option>
-              <option value="CAPRIMULGIFORMES">CAPRIMULGIFORMES</option>
-              <option value="GRUIFORMES">GRUIFORMES</option>
-              <option value="CHARADRIIFORMES">CHARADRIIFORMES</option>
-              <option value="FALCONIFORMES">FALCONIFORMES</option>
-              <option value="ANSERIFORMES">ANSERIFORMES</option>
-              <option value="GRUIFORMES">GRUIFORMES</option>
-              <option value="PELECANIFORMES">PELECANIFORMES</option>
-              <option value="PODICIPEDIFORMES">PODICIPEDIFORMES</option>
-              <option value="CICONIIFORMES">CICONIIFORMES</option>
               <option value="PROCELLARIIFORMES">PROCELLARIIFORMES</option>
-              <option value="CUCULIFORMES">CUCULIFORMES</option>
             </select>
-
             <select
               name="status"
               value={formData.status}
@@ -188,10 +167,8 @@ const BirdForm = ({ onClose, addBird }) => {
     </div>
   );
 };
-
 BirdForm.propTypes = {
   onClose: PropTypes.func.isRequired,
   addBird: PropTypes.func.isRequired,
 };
-
 export default BirdForm;

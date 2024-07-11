@@ -23,6 +23,9 @@ const Navbar = () => {
           <Link to="/main">Birds</Link>
         </li>
         <li>
+          <Link to="/favorite-birds">Favorite Birds</Link>
+        </li>
+        <li>
           <Link to="/about">About</Link>
         </li>
         <li>

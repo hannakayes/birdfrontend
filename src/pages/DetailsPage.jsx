@@ -24,7 +24,7 @@ const DetailsPage = () => {
   }, [id]);
 
   if (!bird) {
-    return <div>Loading...</div>; // Placeholder for loading state
+    return <div>Loading...</div>; 
   }
 
   return (
