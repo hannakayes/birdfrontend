@@ -125,9 +125,9 @@ const BirdEditForm = ({ onClose, updateBird }) => {
             <option value="" disabled>
               Select Status
             </option>
-            <option value="endangered">Endangered</option>
-            <option value="vulnerable">Vulnerable</option>
-            <option value="least concern">Least Concern</option>
+            <option value="endangered">Common</option>
+            <option value="vulnerable">Declining</option>
+            <option value="least concern">Vulnerable</option>
           </select>
           <div className={styles.buttonGroup}>
             <button type="submit" className={styles.searchButton}>
