@@ -189,43 +189,45 @@ const MainPage = ({ birds, fetchBirds, favorites, onToggleFavorite }) => {
                     PHOENICOPTERIFORMES
                   </option>
                   <option value="PICIFORMES">PICIFORMES</option>
-                  <option value="PROCELLARIIFORMES">PROCELLARIIFORMES</option>
-                  <option value="PTEROCULIFORMES">PTEROCULIFORMES</option>
-                  <option value="PTEROCULIFORMES">PTEROCULIFORMES</option>
-                  <option value="RHEIFORMES">RHEIFORMES</option>
-                  <option value="SULIFORMES">SULIFORMES</option>
-                  <option value="STRUTHIONIFORMES">STRUTHIONIFORMES</option>
+                  <option value="PODICIPEDIFORMES">PODICIPEDIFORMES</option>
+                  <option value="PROCELLARIFORMES">PROCELLARIFORMES</option>
+                  <option value="PSITTACIFORMES">PSITTACIFORMES</option>
+                  <option value="PTEROCLIFORMES">PTEROCLIFORMES</option>
                   <option value="STRIGIFORMES">STRIGIFORMES</option>
+                  <option value="SULIFORMES">SULIFORMES</option>
                   <option value="TINAMIFORMES">TINAMIFORMES</option>
                   <option value="TROGONIFORMES">TROGONIFORMES</option>
+                  <option value="TURNICIFORMES">TURNICIFORMES</option>
                 </>
               )}
             </select>
-            <button className={styles.clearFilterButton} onClick={clearFilter}>
-              Clear Filter
-            </button>
+            <button onClick={clearFilter}>Clear Filter</button>
+          </div>
+        )}
+        {isFilterActive && (
+          <div className={styles.activeFilter}>
+            Filter active: {filterType} - {filter}
           </div>
         )}
       </div>
-
       <div className={styles.cardContainer}>
         {filteredBirds.map((bird) => (
           <BirdCard
-            key={bird.id}
+            key={bird._id}
             bird={bird}
-            isFavorite={favorites.includes(bird.id)}
+            onDeleteBird={handleDeleteBird}
+            favorites={favorites}
             onToggleFavorite={onToggleFavorite}
-            onDelete={() => handleDeleteBird(bird.id)}
           />
         ))}
       </div>
-
-      <button className={styles.addBirdButton} onClick={handleAddBird}>
+      <button onClick={handleAddBird} className={styles.addButton}>
         Add Bird
       </button>
-
       {showBirdForm && (
-        <BirdForm onSubmit={addNewBird} onClose={handleCloseForm} />
+        <div className={styles.formContainer}>
+          <BirdForm addBird={addNewBird} onClose={handleCloseForm} />
+        </div>
       )}
     </div>
   );
