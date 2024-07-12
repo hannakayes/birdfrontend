@@ -89,10 +89,10 @@
 }
 
 .addBirdButton {
-  position: absolute;
+  position: fixed; /* Ensure the button is fixed relative to the viewport */
   bottom: 4rem;
   right: 1rem;
-  width: 10%;
+  width: 10%; /* Adjust width if needed */
   padding: 0.5rem;
   border: none;
   border-radius: 40px;

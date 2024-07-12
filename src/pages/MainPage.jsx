@@ -221,7 +221,7 @@ const MainPage = ({ birds, fetchBirds, favorites, onToggleFavorite }) => {
           />
         ))}
       </div>
-      <button onClick={handleAddBird} className={styles.addButton}>
+      <button onClick={handleAddBird} className={styles.addBirdButton}>
         Add Bird
       </button>
       {showBirdForm && (
