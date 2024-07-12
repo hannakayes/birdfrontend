@@ -1,8 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "../styles/BirdDetails.module.css";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+
 const BirdDetails = ({ bird }) => {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const navigate = useNavigate(); // Initialize navigate
+
   const toggleSound = () => {
     if (isPlaying) {
       if (audioRef.current) {
@@ -16,6 +20,7 @@ const BirdDetails = ({ bird }) => {
     }
     setIsPlaying(!isPlaying);
   };
+
   const stopSound = () => {
     if (audioRef.current) {
       audioRef.current.pause();
@@ -24,12 +29,17 @@ const BirdDetails = ({ bird }) => {
     }
     setIsPlaying(false);
   };
+
   useEffect(() => {
-    
     return () => {
       stopSound();
     };
   }, [bird]);
+
+  const handleEditClick = () => {
+    navigate(`/edit-bird/${bird.id}`);
+  };
+
   return (
     <div className={styles.card}>
       <div className={styles.cardHeader}>
@@ -64,7 +74,13 @@ const BirdDetails = ({ bird }) => {
           </div>
         </div>
       </div>
+      <div className={styles.cardButtons}>
+        <button className={styles.editButton} onClick={handleEditClick}>
+          Edit
+        </button>
+      </div>
     </div>
   );
 };
+
 export default BirdDetails;

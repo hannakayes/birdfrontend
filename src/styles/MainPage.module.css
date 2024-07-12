@@ -8,8 +8,8 @@
   padding-bottom: 9rem;
   background-image: linear-gradient(
     to bottom right,
-    #66666645,
-    rgba(255, 204, 0, 0.551)
+    rgba(102, 102, 102, 0.271),
+    #ffcc008d
   ); /* Gradient background */
 }
 

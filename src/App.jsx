@@ -14,6 +14,7 @@ import SearchResultsPage from "./pages/SearchResultsPage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import BirdForm from "./components/BirdForm";
+import BirdEditForm from "./components/BirdEditForm"; // Import BirdEditForm
 import FavoriteBirds from "./pages/FavoriteBirds"; // Adjust import path if needed
 import "./styles/global.css";
 
@@ -86,6 +87,13 @@ const App = () => {
     }
   };
 
+  const handleUpdateBird = (updatedBird) => {
+    const updatedBirds = birds.map((bird) =>
+      bird.id === updatedBird.id ? updatedBird : bird
+    );
+    setBirds(updatedBirds);
+  };
+
   return (
     <MantineProvider theme={theme}>
       <Router>
@@ -123,6 +131,15 @@ const App = () => {
               <Route
                 path="/details/:id"
                 element={<DetailsPage birds={birds} />}
+              />
+              <Route
+                path="/edit-bird/:id"
+                element={
+                  <BirdEditForm
+                    onClose={handleClose}
+                    updateBird={handleUpdateBird}
+                  />
+                }
               />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<ContactDetails />} />
