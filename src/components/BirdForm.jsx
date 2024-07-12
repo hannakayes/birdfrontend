@@ -102,6 +102,7 @@ const BirdForm = ({ onClose, addBird }) => {
               <option value="Motacillidae">Motacillidae</option>
               <option value="Muscicapidae">Muscicapidae</option>
               <option value="Oriolidae">Oriolidae</option>
+              <option value="Otididae">Otididae</option>
               <option value="Panuridae">Panuridae</option>
               <option value="Paridae">Paridae</option>
               <option value="Phasianidae">Phasianidae</option>
@@ -147,6 +148,7 @@ const BirdForm = ({ onClose, addBird }) => {
               <option value="MUSOPHAGIFORMES">MUSOPHAGIFORMES</option>
               <option value="OPHIOTHOMIFORMES">OPHIOTHOMIFORMES</option>
               <option value="OPITHOCOMIFORMES">OPITHOCOMIFORMES</option>
+              <option value="OTIDIFORMES">OTIDIFORMES</option>
               <option value="PASSERIFORMES">PASSERIFORMES</option>
               <option value="PELECANIFORMES">PELECANIFORMES</option>
               <option value="PHAEOTHONTIFORMES">PHAEOTHONTIFORMES</option>
