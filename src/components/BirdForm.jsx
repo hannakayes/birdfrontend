@@ -175,8 +175,8 @@ const BirdForm = ({ onClose, addBird }) => {
               </option>
               {/* Replace with actual options */}
               <option value="Common">Common</option>
-              <option value="Declining">Vulnerable</option>
-              <option value="Vulnarable">Declining</option>
+              <option value="Declining">Declining</option>
+              <option value="Vulnarable">Vulnarable</option>
             </select>
           </div>
           <button type="submit" className={styles.searchButton}>
